@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projekt starten — ARNDSGN</title>
+    <meta
+      name="description"
+      content="Starten Sie Ihr Webdesign-Projekt mit ARNDSGN. Transparente Timeline, persönliche Beratung und maßgeschneiderte Websites."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              serif: ['Instrument Serif', 'Georgia', 'serif'],
+            },
+            colors: {
+              accent: {
+                DEFAULT: '#1a3a34',
+                hover: '#142e29',
+                light: '#2d5a50',
+              },
+              slate: {
+                ink: '#1c1917',
+                muted: '#57534e',
+              },
+            },
+            boxShadow: {
+              soft: '0 4px 24px rgba(28, 25, 23, 0.06)',
+              card: '0 8px 40px rgba(28, 25, 23, 0.08)',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      #home {
+        background: rgba(250, 250, 249, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(28, 25, 23, 0.08);
+        box-shadow: 0 4px 24px rgba(28, 25, 23, 0.06);
+      }
+      #home nav {
+        overflow: visible;
+      }
+      #home .site-logo-wrap {
+        position: relative;
+        flex-shrink: 0;
+        width: 2.75rem;
+        height: 2rem;
+      }
+      #home .site-logo {
+        position: absolute;
+        left: -2.25rem;
+        top: 50%;
+        height: 7.5rem;
+        width: auto;
+        max-width: none;
+        transform: translateY(calc(-50% + 1.1rem));
+        object-fit: contain;
+        display: block;
+      }
+      @media (min-width: 640px) {
+        #home .site-logo-wrap {
+          width: 3.25rem;
+          height: 2.25rem;
+        }
+        #home .site-logo {
+          left: -3rem;
+          height: 10rem;
+          transform: translateY(calc(-50% + 1.5rem));
+        }
+      }
+      @media (min-width: 1024px) {
+        #home .site-logo-wrap {
+          width: 3.875rem;
+          height: 2.5rem;
+        }
+        #home .site-logo {
+          left: -5rem;
+          height: 15rem;
+          transform: translateY(calc(-50% + 2.5rem));
+        }
+      }
+      .page-hero-stage {
+        position: relative;
+        height: 200vh;
+        margin-top: -4.75rem;
+      }
+      @media (min-width: 640px) {
+        .page-hero-stage {
+          margin-top: -6rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        .page-hero-stage {
+          margin-top: -7rem;
+        }
+      }
+      .page-hero {
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        min-height: 100svh;
+        height: 100svh;
+        overflow: hidden;
+        padding: 4.75rem 1rem 3rem;
+        background:
+          radial-gradient(ellipse 80% 60% at 18% 0%, rgba(45, 90, 80, 0.14), transparent 55%),
+          radial-gradient(ellipse 72% 55% at 88% 18%, rgba(26, 58, 52, 0.09), transparent 52%),
+          radial-gradient(ellipse 55% 45% at 50% 100%, rgba(45, 90, 80, 0.06), transparent 58%),
+          #fbfbfd;
+      }
+      @media (min-width: 640px) {
+        .page-hero {
+          padding: 6rem 2rem 3.5rem;
+        }
+      }
+      @media (min-width: 1024px) {
+        .page-hero {
+          padding: 7rem 2rem 4rem;
+        }
+      }
+      .page-hero__content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        max-width: 52rem;
+        min-height: calc(100svh - 7.75rem);
+        margin: 0 auto;
+        text-align: center;
+        transform-origin: center center;
+        will-change: transform, opacity, filter;
+      }
+      @media (min-width: 640px) {
+        .page-hero__content {
+          min-height: calc(100svh - 9.5rem);
+        }
+      }
+      @media (min-width: 1024px) {
+        .page-hero__content {
+          min-height: calc(100svh - 11rem);
+        }
+      }
+      .page-hero__inner {
+        width: 100%;
+        max-width: 52rem;
+        margin: 0 auto;
+        text-align: center;
+      }
+      .page-hero__eyebrow {
+        margin-bottom: 0.85rem;
+        font-size: clamp(0.9375rem, 1.8vw, 1.0625rem);
+        font-weight: 400;
+        line-height: 1.4;
+        color: #2d5a50;
+      }
+      .page-hero__title {
+        font-size: clamp(2.75rem, 7.5vw, 4.75rem);
+        font-weight: 600;
+        letter-spacing: -0.032em;
+        line-height: 1.04;
+        color: #1d1d1f;
+      }
+      .page-hero__lead {
+        margin: 1.1rem auto 0;
+        max-width: 40rem;
+        font-size: clamp(1.1875rem, 2.4vw, 1.5rem);
+        font-weight: 400;
+        line-height: 1.47059;
+        letter-spacing: -0.014em;
+        color: #6e6e73;
+      }
+      .page-hero__hint {
+        position: absolute;
+        bottom: 2rem;
+        left: 50%;
+        z-index: 4;
+        font-size: 0.8125rem;
+        line-height: 1.4;
+        color: #86868b;
+        letter-spacing: 0.02em;
+        transform: translateX(-50%);
+        animation: page-hero-hint-pulse 2.2s ease-in-out infinite;
+      }
+      @keyframes page-hero-hint-pulse {
+        0%,
+        100% {
+          transform: translateX(-50%) translateY(0);
+          opacity: 0.85;
+        }
+        50% {
+          transform: translateX(-50%) translateY(6px);
+          opacity: 0.4;
+        }
+      }
+      .page-hero__veil {
+        position: absolute;
+        inset: 0;
+        z-index: 3;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse 80% 60% at 18% 0%, rgba(45, 90, 80, 0.14), transparent 55%),
+          radial-gradient(ellipse 72% 55% at 88% 18%, rgba(26, 58, 52, 0.09), transparent 52%),
+          #fbfbfd;
+        opacity: 0;
+        will-change: opacity;
+      }
+      .page-hero__focus {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        pointer-events: none;
+        background: radial-gradient(
+          ellipse 70% 55% at 50% 45%,
+          rgba(45, 90, 80, 0.07) 0%,
+          transparent 42%,
+          rgba(251, 251, 253, 0.35) 55%,
+          rgba(251, 251, 253, 0.92) 100%
+        );
+        opacity: 0.45;
+        will-change: opacity;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .page-hero-stage {
+          height: auto;
+          margin-top: 0;
+        }
+        .page-hero {
+          position: relative;
+          min-height: 85svh;
+          height: auto;
+          padding: 4rem 1rem 3rem;
+        }
+        .page-hero__content {
+          min-height: auto;
+        }
+        .page-hero__hint,
+        .page-hero__veil,
+        .page-hero__focus {
+          display: none;
+        }
+      }
+      #ablauf {
+        position: relative;
+        z-index: 20;
+        isolation: isolate;
+        overflow: hidden;
+        background:
+          radial-gradient(ellipse 78% 52% at 8% 0%, rgba(45, 90, 80, 0.12), transparent 54%),
+          radial-gradient(ellipse 68% 48% at 92% 24%, rgba(26, 58, 52, 0.08), transparent 50%),
+          radial-gradient(ellipse 60% 42% at 50% 100%, rgba(45, 90, 80, 0.07), transparent 58%),
+          linear-gradient(180deg, #fbfbfd 0%, #f6faf8 100%);
+      }
+      #ablauf::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background: radial-gradient(
+          ellipse 50% 35% at 50% 50%,
+          rgba(45, 90, 80, 0.04),
+          transparent 70%
+        );
+      }
+      #ablauf > * {
+        position: relative;
+        z-index: 1;
+      }
+      .process-intro {
+        max-width: 42.5rem;
+        margin: 0 auto 3.5rem;
+        text-align: center;
+      }
+      @media (min-width: 1024px) {
+        .process-intro {
+          margin-bottom: 4.5rem;
+        }
+      }
+      .process-intro__eyebrow {
+        margin-bottom: 0.65rem;
+        font-size: 0.875rem;
+        font-weight: 400;
+        line-height: 1.4;
+        color: #2d5a50;
+      }
+      .process-intro__title {
+        font-size: clamp(2rem, 4.8vw, 3rem);
+        font-weight: 600;
+        letter-spacing: -0.028em;
+        line-height: 1.08;
+        color: #1d1d1f;
+      }
+      .process-intro__lead {
+        margin-top: 0.85rem;
+        font-size: clamp(1.0625rem, 2.2vw, 1.3125rem);
+        font-weight: 400;
+        line-height: 1.47059;
+        letter-spacing: -0.011em;
+        color: #6e6e73;
+      }
+      .process-intro__note {
+        margin-top: 1.15rem;
+        font-size: 0.875rem;
+        line-height: 1.42857;
+        color: #2d5a50;
+        opacity: 0.82;
+      }
+      .process-list {
+        margin: 0 auto;
+        max-width: 61.25rem;
+        list-style: none;
+        border-top: 1px solid rgba(45, 90, 80, 0.18);
+        padding: 0;
+      }
+      .process-step {
+        display: grid;
+        grid-template-columns: minmax(3.5rem, 5rem) minmax(0, 1fr);
+        gap: 0.75rem 1.5rem;
+        border-bottom: 1px solid rgba(45, 90, 80, 0.14);
+        padding: 2.25rem 0;
+        opacity: 0;
+        transform: translateY(28px);
+        transition:
+          opacity 0.9s cubic-bezier(0.25, 0.1, 0.25, 1),
+          transform 0.9s cubic-bezier(0.25, 0.1, 0.25, 1);
+      }
+      @media (min-width: 768px) {
+        .process-step {
+          grid-template-columns: 5.5rem minmax(0, 1fr);
+          gap: 1rem 2.5rem;
+          padding: 3rem 0;
+        }
+      }
+      .process-step.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .process-step__num {
+        font-size: clamp(2.5rem, 5vw, 3.25rem);
+        font-weight: 600;
+        line-height: 1;
+        letter-spacing: -0.04em;
+        font-variant-numeric: tabular-nums;
+        color: rgba(45, 90, 80, 0.28);
+      }
+      .process-step__meta {
+        font-size: 0.8125rem;
+        font-weight: 400;
+        line-height: 1.38462;
+        color: #2d5a50;
+        opacity: 0.72;
+      }
+      .process-step__title {
+        margin-top: 0.3rem;
+        font-size: clamp(1.375rem, 2.8vw, 1.75rem);
+        font-weight: 600;
+        line-height: 1.14286;
+        letter-spacing: -0.022em;
+        color: #1d1d1f;
+      }
+      .process-step__text {
+        margin-top: 0.65rem;
+        max-width: 36rem;
+        font-size: 1.0625rem;
+        font-weight: 400;
+        line-height: 1.58824;
+        letter-spacing: -0.011em;
+        color: #6e6e73;
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .process-step {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+      }
+      .form-field:focus-within label {
+        color: #1a3a34;
+      }
+      .form-field input,
+      .form-field select,
+      .form-field textarea {
+        font-size: 16px;
+      }
+      @media (min-width: 640px) {
+        .form-field input,
+        .form-field select,
+        .form-field textarea {
+          font-size: 0.875rem;
+        }
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden bg-stone-50 font-sans text-slate-ink antialiased">
+    <header id="home" class="fixed inset-x-0 top-0 z-[100]">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+        <a href="index.html" class="site-logo-wrap transition-opacity hover:opacity-80" aria-label="ARNDSGN Home">
+          <img src="images/logo-nav.png" alt="ARNDSGN" class="site-logo" width="369" height="240" />
+        </a>
+        <ul class="hidden items-center gap-6 lg:gap-8 lg:flex">
+          <li><a href="index.html" class="text-sm font-medium text-slate-muted transition-colors hover:text-slate-ink">Home</a></li>
+          <li><a href="index.html#services" class="text-sm font-medium text-slate-muted transition-colors hover:text-slate-ink">Services</a></li>
+          <li><a href="index.html#portfolio" class="text-sm font-medium text-slate-muted transition-colors hover:text-slate-ink">Portfolio</a></li>
+          <li><a href="index.html#faq" class="text-sm font-medium text-slate-muted transition-colors hover:text-slate-ink">FAQ</a></li>
+          <li><a href="projekt.html" class="text-sm font-medium text-accent transition-colors hover:text-accent-hover">Projekt starten</a></li>
+        </ul>
+        <div class="flex items-center gap-3">
+          <a
+            href="#anfrage"
+            class="hidden rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition-all hover:bg-accent-hover hover:shadow-card min-[480px]:inline-flex"
+          >
+            Anfrage senden
+          </a>
+          <button
+            id="menu-toggle"
+            type="button"
+            class="inline-flex rounded-lg p-2 text-slate-ink lg:hidden"
+            aria-label="Menü öffnen"
+            aria-expanded="false"
+          >
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+      <div id="mobile-menu" class="hidden border-t border-stone-200 bg-stone-50 px-5 py-4 lg:hidden">
+        <ul class="flex flex-col gap-4">
+          <li><a href="index.html" class="block text-sm font-medium">Home</a></li>
+          <li><a href="index.html#services" class="block text-sm font-medium">Services</a></li>
+          <li><a href="index.html#portfolio" class="block text-sm font-medium">Portfolio</a></li>
+          <li><a href="index.html#faq" class="block text-sm font-medium">FAQ</a></li>
+          <li><a href="projekt.html" class="block text-sm font-medium text-accent">Projekt starten</a></li>
+          <li>
+            <a href="#anfrage" class="mt-2 inline-flex rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white">Anfrage senden</a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main class="pt-[4.75rem] sm:pt-24 lg:pt-28">
+      <!-- Hero — scroll stage: reinzoomen, dann Ablauf -->
+      <div class="page-hero-stage">
+        <section class="page-hero" aria-labelledby="page-hero-title">
+          <div class="page-hero__focus" id="page-hero-focus" aria-hidden="true"></div>
+          <div class="page-hero__content" id="page-hero-content">
+            <div class="page-hero__inner">
+              <p class="page-hero__eyebrow">Projekt starten</p>
+              <h1 id="page-hero-title" class="page-hero__title">Lassen Sie uns Ihr nächstes Projekt planen.</h1>
+              <p class="page-hero__lead">
+                Ob neue Website, Relaunch oder Online-Shop — wir begleiten Sie transparent von der ersten Idee
+                bis zum Launch.
+              </p>
+            </div>
+          </div>
+          <p class="page-hero__hint" id="page-hero-hint" aria-hidden="true">Scrollen</p>
+          <div class="page-hero__veil" id="page-hero-veil" aria-hidden="true"></div>
+        </section>
+      </div>
+
+      <!-- Process -->
+      <section id="ablauf" class="px-4 py-16 sm:px-8 sm:py-24 lg:py-32">
+        <div class="mx-auto max-w-6xl">
+          <header class="process-intro">
+            <p class="process-intro__eyebrow">Unser Prozess</p>
+            <h2 class="process-intro__title">So arbeiten wir zusammen.</h2>
+            <p class="process-intro__lead">
+              Klar strukturiert. Mit festen Meilensteinen. Von der ersten Idee bis zum Launch.
+            </p>
+            <p class="process-intro__note">6 Phasen · ca. 8 Wochen · 2 Feedback-Runden</p>
+          </header>
+
+          <ol class="process-list">
+            <li class="process-step">
+              <span class="process-step__num" aria-hidden="true">01</span>
+              <div>
+                <p class="process-step__meta">Woche 1</p>
+                <h3 class="process-step__title">Erstgespräch &amp; Briefing</h3>
+                <p class="process-step__text">
+                  Wir lernen Ihre Marke, Ziele und Zielgruppe kennen. Umfang, Budget und Zeitplan werden
+                  gemeinsam definiert — unverbindlich und persönlich.
+                </p>
+              </div>
+            </li>
+
+            <li class="process-step">
+              <span class="process-step__num" aria-hidden="true">02</span>
+              <div>
+                <p class="process-step__meta">Woche 1–2</p>
+                <h3 class="process-step__title">Konzept &amp; Struktur</h3>
+                <p class="process-step__text">
+                  Sitemap, Wireframes und Content-Strategie. Sie sehen früh, wie Ihre Seite aufgebaut ist —
+                  bevor das visuelle Design startet.
+                </p>
+              </div>
+            </li>
+
+            <li class="process-step">
+              <span class="process-step__num" aria-hidden="true">03</span>
+              <div>
+                <p class="process-step__meta">Woche 2–4</p>
+                <h3 class="process-step__title">Design &amp; Feedback</h3>
+                <p class="process-step__text">
+                  Individuelles UI-Design in Figma — keine Templates. Zwei Feedback-Runden sorgen dafür,
+                  dass das Ergebnis exakt zu Ihrer Marke passt.
+                </p>
+              </div>
+            </li>
+
+            <li class="process-step">
+              <span class="process-step__num" aria-hidden="true">04</span>
+              <div>
+                <p class="process-step__meta">Woche 4–6</p>
+                <h3 class="process-step__title">Entwicklung</h3>
+                <p class="process-step__text">
+                  Sauberer, performanter Code — responsive, barrierearm und SEO-ready. Mit Staging-URL
+                  und regelmäßigen Updates.
+                </p>
+              </div>
+            </li>
+
+            <li class="process-step">
+              <span class="process-step__num" aria-hidden="true">05</span>
+              <div>
+                <p class="process-step__meta">Woche 6–8</p>
+                <h3 class="process-step__title">Testing &amp; Launch</h3>
+                <p class="process-step__text">
+                  Cross-Browser-Tests, Performance-Check und finale Abnahme. Domain, Hosting und Go-Live —
+                  wir begleiten alles.
+                </p>
+              </div>
+            </li>
+
+            <li class="process-step">
+              <span class="process-step__num" aria-hidden="true">06</span>
+              <div>
+                <p class="process-step__meta">Laufend</p>
+                <h3 class="process-step__title">Support &amp; Wachstum</h3>
+                <p class="process-step__text">
+                  Nach dem Launch bleiben wir an Ihrer Seite — Updates, Analytics-Auswertung und optionale
+                  Weiterentwicklung nach Bedarf.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- Contact Form -->
+      <section id="anfrage" class="bg-accent px-4 py-14 text-white sm:px-8 sm:py-20 lg:py-28">
+        <div class="mx-auto grid max-w-6xl min-w-0 gap-10 md:grid-cols-2 md:gap-12 lg:gap-20">
+          <div class="min-w-0">
+            <p class="mb-3 text-[0.6875rem] font-semibold uppercase tracking-[0.2em] text-white/50 sm:mb-4 sm:text-xs">Kontakt</p>
+            <h2 class="text-2xl font-bold tracking-tight sm:text-3xl lg:text-4xl">Projekt anfragen</h2>
+            <p class="mt-4 text-sm leading-relaxed text-white/75 sm:mt-5 sm:text-base">
+              Erzählen Sie uns kurz von Ihrem Vorhaben. Wir melden uns innerhalb von 24 Stunden mit einem
+              unverbindlichen Vorschlag für das nächste Gespräch.
+            </p>
+            <ul class="mt-8 space-y-3 text-sm text-white/70 sm:mt-10 sm:space-y-4">
+              <li class="flex items-start gap-3 sm:items-center">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-sm text-white sm:h-8 sm:w-8">@</span>
+                <a href="mailto:arndsgn@arndsgn.com" class="break-all pt-1 transition-colors hover:text-white sm:pt-0 sm:break-normal">arndsgn@arndsgn.com</a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-sm text-white sm:h-8 sm:w-8">☎</span>
+                <a href="tel:+49151175553093" class="transition-colors hover:text-white">+49 151175553093</a>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-sm text-white sm:h-8 sm:w-8">⌖</span>
+                <span>Düsseldorf · Remote EU-weit</span>
+              </li>
+            </ul>
+          </div>
+
+          <form id="project-form" class="min-w-0 rounded-2xl bg-white p-5 shadow-card sm:p-8" novalidate>
+            <input type="text" name="_honey" class="hidden" tabindex="-1" autocomplete="off" aria-hidden="true" />
+            <div class="grid gap-4 sm:grid-cols-2 sm:gap-5">
+              <div class="form-field sm:col-span-1">
+                <label for="name" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-muted">Name *</label>
+                <input
+                  id="name"
+                  name="name"
+                  type="text"
+                  required
+                  autocomplete="name"
+                  class="w-full min-w-0 rounded-xl border border-stone-200 bg-stone-50 px-4 py-3.5 text-slate-ink outline-none transition-colors focus:border-accent focus:bg-white sm:py-3"
+                  placeholder="Ihr Name"
+                />
+              </div>
+              <div class="form-field sm:col-span-1">
+                <label for="email" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-muted">E-Mail *</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  required
+                  autocomplete="email"
+                  class="w-full min-w-0 rounded-xl border border-stone-200 bg-stone-50 px-4 py-3.5 text-slate-ink outline-none transition-colors focus:border-accent focus:bg-white sm:py-3"
+                  placeholder="name@firma.de"
+                />
+              </div>
+              <div class="form-field sm:col-span-2">
+                <label for="company" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-muted">Unternehmen</label>
+                <input
+                  id="company"
+                  name="company"
+                  type="text"
+                  autocomplete="organization"
+                  class="w-full min-w-0 rounded-xl border border-stone-200 bg-stone-50 px-4 py-3.5 text-slate-ink outline-none transition-colors focus:border-accent focus:bg-white sm:py-3"
+                  placeholder="Optional"
+                />
+              </div>
+              <div class="form-field sm:col-span-1">
+                <label for="project-type" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-muted">Projekttyp *</label>
+                <select
+                  id="project-type"
+                  name="project-type"
+                  required
+                  class="w-full min-w-0 rounded-xl border border-stone-200 bg-stone-50 px-4 py-3.5 text-slate-ink outline-none transition-colors focus:border-accent focus:bg-white sm:py-3"
+                >
+                  <option value="">Bitte wählen</option>
+                  <option value="website">Unternehmenswebsite</option>
+                  <option value="ecommerce">E-Commerce / Online-Shop</option>
+                  <option value="relaunch">Website-Relaunch</option>
+                  <option value="landing">Landing Page</option>
+                  <option value="other">Sonstiges</option>
+                </select>
+              </div>
+              <div class="form-field sm:col-span-1">
+                <label for="budget" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-muted">Budgetrahmen</label>
+                <select
+                  id="budget"
+                  name="budget"
+                  class="w-full min-w-0 rounded-xl border border-stone-200 bg-stone-50 px-4 py-3.5 text-slate-ink outline-none transition-colors focus:border-accent focus:bg-white sm:py-3"
+                >
+                  <option value="">Optional</option>
+                  <option value="5k">bis 5.000 €</option>
+                  <option value="5-10k">5.000 – 10.000 €</option>
+                  <option value="10-20k">10.000 – 20.000 €</option>
+                  <option value="20k+">20.000 €+</option>
+                </select>
+              </div>
+              <div class="form-field sm:col-span-2">
+                <label for="message" class="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-slate-muted">Ihre Nachricht *</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  required
+                  rows="5"
+                  class="w-full min-w-0 resize-y rounded-xl border border-stone-200 bg-stone-50 px-4 py-3.5 text-slate-ink outline-none transition-colors focus:border-accent focus:bg-white sm:py-3"
+                  placeholder="Beschreiben Sie kurz Ihr Projekt, Ihre Ziele und den gewünschten Zeitrahmen…"
+                ></textarea>
+              </div>
+            </div>
+            <button
+              type="submit"
+              class="mt-5 w-full rounded-full bg-accent px-7 py-4 text-sm font-semibold text-white shadow-soft transition-all hover:bg-accent-hover hover:shadow-card active:scale-[0.98] sm:mt-6 sm:w-auto sm:py-3.5"
+            >
+              Anfrage absenden
+            </button>
+            <p id="form-success" class="mt-4 hidden text-sm font-medium text-accent" role="status">
+              Vielen Dank! Ihre Anfrage wurde gesendet. Wir melden uns in Kürze bei Ihnen.
+            </p>
+            <p id="form-error" class="mt-4 hidden text-sm font-medium text-red-600" role="alert">
+              Beim Senden ist ein Fehler aufgetreten. Bitte versuchen Sie es erneut oder schreiben Sie uns direkt an
+              <a href="mailto:arndsgn@arndsgn.com" class="underline">arndsgn@arndsgn.com</a>.
+            </p>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-white/10 bg-accent px-4 py-8 text-white sm:px-8 sm:py-10">
+      <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+        <p class="text-xs text-white/50">© 2026 ARNDSGN. Alle Rechte vorbehalten.</p>
+        <a href="index.html" class="text-sm text-white/70 transition-colors hover:text-white">← Zurück zur Startseite</a>
+      </div>
+    </footer>
+
+    <script>
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+
+      document.querySelectorAll('#mobile-menu a').forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      const FORM_EMAIL = 'arndsgn@arndsgn.com';
+      const projectForm = document.getElementById('project-form');
+      const formSuccess = document.getElementById('form-success');
+      const formError = document.getElementById('form-error');
+      const submitButton = projectForm.querySelector('button[type="submit"]');
+      const defaultSubmitLabel = submitButton.textContent;
+
+      const projectTypeLabels = {
+        website: 'Unternehmenswebsite',
+        ecommerce: 'E-Commerce / Online-Shop',
+        relaunch: 'Website-Relaunch',
+        landing: 'Landing Page',
+        other: 'Sonstiges',
+      };
+
+      const budgetLabels = {
+        '5k': 'bis 5.000 €',
+        '5-10k': '5.000 – 10.000 €',
+        '10-20k': '10.000 – 20.000 €',
+        '20k+': '20.000 €+',
+      };
+
+      projectForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        formSuccess.classList.add('hidden');
+        formError.classList.add('hidden');
+
+        if (!projectForm.checkValidity()) {
+          projectForm.reportValidity();
+          return;
+        }
+
+        if (projectForm.querySelector('[name="_honey"]').value) {
+          return;
+        }
+
+        const formData = new FormData(projectForm);
+        const name = formData.get('name');
+        const payload = {
+          name,
+          email: formData.get('email'),
+          unternehmen: formData.get('company') || '—',
+          projekttyp: projectTypeLabels[formData.get('project-type')] || formData.get('project-type'),
+          budget: budgetLabels[formData.get('budget')] || formData.get('budget') || '—',
+          nachricht: formData.get('message'),
+          _subject: `Neue Projektanfrage: ${name}`,
+          _template: 'table',
+          _captcha: 'false',
+        };
+
+        submitButton.disabled = true;
+        submitButton.textContent = 'Wird gesendet…';
+
+        try {
+          const response = await fetch(`https://formsubmit.co/ajax/${FORM_EMAIL}`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+            body: JSON.stringify(payload),
+          });
+
+          if (!response.ok) {
+            throw new Error('Form submit failed');
+          }
+
+          formSuccess.classList.remove('hidden');
+          projectForm.reset();
+          submitButton.textContent = 'Gesendet ✓';
+        } catch {
+          formError.classList.remove('hidden');
+          submitButton.disabled = false;
+          submitButton.textContent = defaultSubmitLabel;
+        }
+      });
+
+      const steps = document.querySelectorAll('.process-step');
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) entry.target.classList.add('is-visible');
+            });
+          },
+          { threshold: 0.2, rootMargin: '0px 0px -40px 0px' }
+        );
+        steps.forEach((step) => observer.observe(step));
+      } else {
+        steps.forEach((step) => step.classList.add('is-visible'));
+      }
+
+      (function initPageHeroScroll() {
+        const stage = document.querySelector('.page-hero-stage');
+        const content = document.getElementById('page-hero-content');
+        const hint = document.getElementById('page-hero-hint');
+        const veil = document.getElementById('page-hero-veil');
+        const focus = document.getElementById('page-hero-focus');
+        if (!stage || !content) return;
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+        const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+        const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+
+        function updateHeroScroll() {
+          const range = stage.offsetHeight - window.innerHeight;
+          if (range <= 0) return;
+
+          const raw = clamp(-stage.getBoundingClientRect().top / range, 0, 1);
+          const progress = easeOutCubic(raw);
+          const scale = 1 + progress * 0.48;
+          const y = -progress * 88;
+          const opacity = clamp(1 - progress * 1.12, 0, 1);
+          const blur = progress * 9;
+
+          content.style.transform = `translate3d(0, ${y}px, 0) scale(${scale})`;
+          content.style.opacity = String(opacity);
+          content.style.filter = `blur(${blur}px)`;
+
+          if (focus) {
+            focus.style.opacity = String(0.45 + progress * 0.55);
+          }
+          if (veil) {
+            veil.style.opacity = String(clamp((progress - 0.5) / 0.5, 0, 1));
+          }
+          if (hint) {
+            hint.style.opacity = String(clamp(1 - progress * 3.5, 0, 1));
+            hint.style.animationPlayState = progress > 0.08 ? 'paused' : 'running';
+          }
+        }
+
+        window.addEventListener('scroll', updateHeroScroll, { passive: true });
+        window.addEventListener('resize', updateHeroScroll);
+        updateHeroScroll();
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AGB — ARNDSGN</title>
+    <meta
+      name="description"
+      content="Allgemeine Geschäftsbedingungen von ARNDSGN für Webdesign, Webentwicklung und Agenturdienstleistungen."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+            },
+            colors: {
+              accent: {
+                DEFAULT: '#1a3a34',
+                hover: '#142e29',
+                light: '#2d5a50',
+              },
+              slate: {
+                ink: '#1c1917',
+                muted: '#57534e',
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      #home {
+        background: rgba(250, 250, 249, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(28, 25, 23, 0.08);
+        box-shadow: 0 4px 24px rgba(28, 25, 23, 0.06);
+      }
+      #home .site-logo-wrap {
+        position: relative;
+        flex-shrink: 0;
+        width: 2.75rem;
+        height: 2rem;
+      }
+      #home .site-logo {
+        position: absolute;
+        left: -2.25rem;
+        top: 50%;
+        height: 7.5rem;
+        width: auto;
+        max-width: none;
+        transform: translateY(calc(-50% + 1.1rem));
+        object-fit: contain;
+        display: block;
+      }
+      @media (min-width: 640px) {
+        #home .site-logo-wrap {
+          width: 3.25rem;
+          height: 2.25rem;
+        }
+        #home .site-logo {
+          left: -3rem;
+          height: 10rem;
+          transform: translateY(calc(-50% + 1.5rem));
+        }
+      }
+      @media (min-width: 1024px) {
+        #home .site-logo-wrap {
+          width: 3.875rem;
+          height: 2.5rem;
+        }
+        #home .site-logo {
+          left: -5rem;
+          height: 15rem;
+          transform: translateY(calc(-50% + 2.5rem));
+        }
+      }
+      .legal-content h2 {
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+        font-size: 1.125rem;
+        font-weight: 700;
+        color: #1c1917;
+      }
+      .legal-content h2:first-of-type {
+        margin-top: 0;
+      }
+      .legal-content ol {
+        margin-top: 0.75rem;
+        list-style: none;
+        counter-reset: legal-item;
+      }
+      .legal-content ol > li {
+        counter-increment: legal-item;
+        margin-bottom: 0.85rem;
+        padding-left: 2rem;
+        position: relative;
+        font-size: 0.9375rem;
+        line-height: 1.7;
+        color: #57534e;
+      }
+      .legal-content ol > li::before {
+        content: '(' counter(legal-item) ')';
+        position: absolute;
+        left: 0;
+        font-weight: 600;
+        color: #1a3a34;
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden bg-stone-50 font-sans text-slate-ink antialiased">
+    <header id="home" class="fixed inset-x-0 top-0 z-[100]">
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+        <a href="index.html" class="site-logo-wrap transition-opacity hover:opacity-80" aria-label="ARNDSGN Home">
+          <img src="images/logo-nav.png" alt="ARNDSGN" class="site-logo" width="369" height="240" />
+        </a>
+        <ul class="hidden items-center gap-6 lg:gap-8 lg:flex">
+          <li><a href="index.html" class="text-sm font-medium text-slate-muted transition-colors hover:text-slate-ink">Home</a></li>
+          <li><a href="index.html#services" class="text-sm font-medium text-slate-muted transition-colors hover:text-slate-ink">Services</a></li>
+          <li><a href="index.html#portfolio" class="text-sm font-medium text-slate-muted transition-colors hover:text-slate-ink">Portfolio</a></li>
+          <li><a href="projekt.html" class="text-sm font-medium text-slate-muted transition-colors hover:text-slate-ink">Projekt starten</a></li>
+        </ul>
+        <a
+          href="projekt.html"
+          class="rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-accent-hover"
+        >
+          Anfrage senden
+        </a>
+      </nav>
+    </header>
+
+    <main class="pt-[4.75rem] sm:pt-24 lg:pt-28">
+      <div class="border-b border-stone-200 bg-gradient-to-b from-stone-50 to-[#f4f1ec] px-5 py-14 sm:px-8 sm:py-20">
+        <div class="mx-auto max-w-3xl">
+          <p class="mb-3 text-xs font-semibold uppercase tracking-[0.2em] text-accent-light">Rechtliches</p>
+          <h1 class="text-3xl font-bold tracking-tight text-slate-ink sm:text-4xl">
+            Allgemeine Geschäftsbedingungen
+          </h1>
+          <p class="mt-4 text-base leading-relaxed text-slate-muted">
+            AGB für Webdesign &amp; Agenturdienstleistungen — ARNDSGN
+          </p>
+        </div>
+      </div>
+
+      <article class="legal-content mx-auto max-w-3xl px-5 py-12 sm:px-8 sm:py-16">
+        <h2>§ 1 Geltungsbereich</h2>
+        <ol>
+          <li>
+            Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Verträge zwischen ARNDSGN
+            (im Folgenden „Anbieter“) und dem Kunden.
+          </li>
+          <li>
+            Diese AGB gelten sowohl gegenüber Verbrauchern (§ 13 BGB) als auch gegenüber Unternehmern
+            (§ 14 BGB), es sei denn, in der jeweiligen Klausel wird ausdrücklich differenziert.
+          </li>
+        </ol>
+
+        <h2>§ 2 Vertragsgegenstand</h2>
+        <ol>
+          <li>
+            Der Anbieter erbringt Dienst- und Werkleistungen in den Bereichen Webdesign,
+            Webentwicklung sowie damit zusammenhängende laufende Services (z.&nbsp;B. Hosting,
+            SEO-Betreuung).
+          </li>
+          <li>
+            Maßgeblich für den Umfang der Leistungen ist das individuell vereinbarte Angebot oder das
+            Pflichtenheft.
+          </li>
+        </ol>
+
+        <h2>§ 3 Vergütung und Zahlungsbedingungen (Anzahlungen)</h2>
+        <ol>
+          <li>
+            Bei Projekten mit einem Auftragswert ab 1.000&nbsp;EUR (netto) ist eine Anzahlung in Höhe
+            von 30&nbsp;% der Netto-Auftragssumme innerhalb von 14 Tagen nach Vertragsschluss zu leisten.
+          </li>
+          <li>
+            Weitere 30&nbsp;% werden mit Erreichen eines Zwischen-Meilensteins (z.&nbsp;B.
+            Konzept-/Layout-Freigabe) fällig, die Restvergütung mit der Abnahme.
+          </li>
+          <li>
+            Der Anbieter ist berechtigt, vor Eingang der Anzahlung keine vertragliche Leistung
+            aufzunehmen; hieraus resultierende Verzögerungen gehen nicht zu seinen Lasten.
+          </li>
+        </ol>
+
+        <h2>§ 4 Abnahme (bei Projektgeschäften / Werkverträgen)</h2>
+        <ol>
+          <li>
+            Nach Fertigstellung stellt der Anbieter die Arbeitsergebnisse zur Abnahme bereit.
+          </li>
+          <li>
+            Der Kunde hat die Werke innerhalb von 14 Tagen zu prüfen und die Abnahme zu erklären oder
+            unter Angabe konkreter, wesentlicher Mängel zu verweigern. Unwesentliche Mängel berechtigen
+            nicht zur Abnahmeverweigerung.
+          </li>
+          <li>
+            Erklärt der Kunde innerhalb der Frist keine Abnahme und benennt keine Mängel, gilt das Werk
+            als abgenommen.
+          </li>
+          <li>
+            Ist der Kunde Verbraucher, gilt dies nur, wenn der Anbieter zusammen mit der Aufforderung zur
+            Abnahme in Textform auf die Folgen einer nicht erklärten oder ohne Mangelangabe verweigerten
+            Abnahme hingewiesen hat.
+          </li>
+          <li>
+            Die Abnahme gilt ferner als erklärt, wenn der Kunde die Arbeitsergebnisse produktiv einsetzt
+            (z.&nbsp;B. Live-Schaltung der Website, Nutzung der Designs in Kundenkommunikation).
+          </li>
+          <li>
+            Teilabnahmen nach abgeschlossenen Projektphasen sind zulässig und auf Verlangen einer
+            Vertragspartei durchzuführen.
+          </li>
+        </ol>
+
+        <h2>§ 5 Einräumung von Nutzungsrechten</h2>
+        <ol>
+          <li>
+            Der Kunde erhält mit vollständiger Bezahlung der vereinbarten Vergütung die für den
+            vertraglich vorausgesetzten Nutzungszweck erforderlichen Nutzungsrechte an den gelieferten
+            Arbeitsergebnissen.
+          </li>
+          <li>
+            Dies umfasst — soweit nicht abweichend vereinbart — ein einfaches, zeitlich und räumlich
+            unbeschränktes Nutzungsrecht zur Nutzung auf der vertraglich festgelegten Website/Werbemedien
+            einschließlich der Rechte zur Vervielfältigung, Verbreitung, öffentlichen Zugänglichmachung im
+            Internet und Bearbeitung, soweit dies zur bestimmungsgemäßen Verwendung erforderlich ist.
+          </li>
+          <li>
+            Eine Übertragung der Nutzungsrechte auf Dritte, die Weitergabe in Teilen oder die Nutzung für
+            andere als die vertraglich vereinbarten Medien bedarf der ausdrücklichen schriftlichen
+            Zustimmung des Anbieters und einer gesonderten Vergütung.
+          </li>
+          <li>
+            Die Einräumung steht unter der aufschiebenden Bedingung der vollständigen Bezahlung der
+            Vergütung (§ 158 Abs. 1 BGB). Bis dahin ist jede Nutzung untersagt.
+          </li>
+          <li>
+            Der Anbieter ist berechtigt, die für den Kunden erstellten Arbeiten im Rahmen der Eigenwerbung
+            (Portfolio, Referenzen, Case Studies online und offline) unter Nennung des Kunden zu
+            verwenden, sofern der Kunde dem nicht aus berechtigtem Grund widerspricht.
+          </li>
+        </ol>
+
+        <h2>§ 6 Haftung</h2>
+        <ol>
+          <li>
+            Der Anbieter haftet unbeschränkt für Vorsatz und grobe Fahrlässigkeit sowie für Schäden aus
+            der Verletzung des Lebens, des Körpers oder der Gesundheit. Die Haftung nach dem
+            Produkthaftungsgesetz und aus einer vom Anbieter übernommenen Garantie bleibt unberührt.
+          </li>
+          <li>
+            Für einfache Fahrlässigkeit haftet der Anbieter nur bei Verletzung einer wesentlichen
+            Vertragspflicht (Kardinalpflicht), deren Erfüllung die ordnungsgemäße Durchführung des Vertrags
+            überhaupt erst ermöglicht und auf deren Einhaltung der Vertragspartner regelmäßig vertrauen
+            darf. In diesem Fall ist die Haftung auf den bei Vertragsschluss vorhersehbaren,
+            vertragstypischen Schaden begrenzt.
+          </li>
+          <li>Im Übrigen ist die Haftung für einfache Fahrlässigkeit ausgeschlossen.</li>
+        </ol>
+
+        <h2>§ 7 Schlussbestimmungen</h2>
+        <ol>
+          <li>
+            Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts. Bei
+            Verbrauchern gilt diese Rechtswahl nur, soweit hierdurch der durch zwingende Bestimmungen des
+            Rechts des Staates des gewöhnlichen Aufenthaltes des Verbrauchers gewährte Schutz nicht
+            entzogen wird.
+          </li>
+          <li>
+            Ist der Kunde Kaufmann im Sinne des Handelsgesetzbuchs, juristische Person des öffentlichen
+            Rechts oder öffentlich-rechtliches Sondervermögen, ist ausschließlicher Gerichtsstand für alle
+            Streitigkeiten aus diesem Vertrag der Sitz des Anbieters (Düsseldorf). Der Anbieter ist
+            berechtigt, den Kunden auch an dessen allgemeinem Gerichtsstand zu verklagen. Für Verbraucher
+            gelten die gesetzlichen Regelungen.
+          </li>
+        </ol>
+
+        <p class="mt-12 text-sm text-slate-muted">Stand: Mai 2026</p>
+      </article>
+    </main>
+
+    <footer class="border-t border-white/10 bg-accent px-4 py-8 text-white sm:px-8 sm:py-10">
+      <div class="mx-auto flex max-w-3xl flex-col items-center justify-between gap-4 text-center sm:flex-row sm:text-left">
+        <p class="text-xs text-white/50">© 2026 ARNDSGN. Alle Rechte vorbehalten.</p>
+        <div class="flex flex-wrap items-center justify-center gap-4 sm:justify-end">
+          <a href="datenschutz.html" class="text-sm text-white/70 transition-colors hover:text-white">Datenschutz</a>
+          <a href="index.html" class="text-sm text-white/70 transition-colors hover:text-white">← Zurück zur Startseite</a>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

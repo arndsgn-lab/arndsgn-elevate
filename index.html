@@ -1,0 +1,2498 @@
+<!DOCTYPE html>
+<html lang="de" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ARNDSGN — Premium Webdesign Agentur</title>
+    <meta
+      name="description"
+      content="Premium Webdesign für Marken, die Vertrauen schaffen und konvertieren. Individuelle Websites, E-Commerce und SEO."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ['Inter', 'system-ui', 'sans-serif'],
+              serif: ['Instrument Serif', 'Georgia', 'serif'],
+              mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],
+              display: ['Space Grotesk', 'Inter', 'sans-serif'],
+            },
+            colors: {
+              accent: {
+                DEFAULT: '#1a3a34',
+                hover: '#142e29',
+                light: '#2d5a50',
+              },
+              slate: {
+                ink: '#1c1917',
+                muted: '#57534e',
+              },
+            },
+            boxShadow: {
+              soft: '0 4px 24px rgba(28, 25, 23, 0.06)',
+              card: '0 8px 40px rgba(28, 25, 23, 0.08)',
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      #home,
+      #home nav {
+        background: transparent;
+      }
+      #home {
+        border: none;
+        box-shadow: none;
+        transition: transform 0.35s ease, background-color 0.3s ease, border-color 0.3s ease,
+          box-shadow 0.3s ease;
+      }
+      #home.is-hidden {
+        transform: translateY(-110%);
+        pointer-events: none;
+      }
+      #home .nav-link {
+        color: rgba(255, 255, 255, 0.75);
+        transition: color 0.3s ease;
+      }
+      #home .nav-link:hover {
+        color: #fff;
+      }
+      #home #menu-toggle {
+        color: #fff;
+        transition: color 0.3s ease;
+      }
+      #home.is-scrolled {
+        background: rgba(250, 250, 249, 0.92);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(28, 25, 23, 0.08);
+        box-shadow: 0 4px 24px rgba(28, 25, 23, 0.06);
+      }
+      #home.is-scrolled .nav-link {
+        color: #57534e;
+      }
+      #home.is-scrolled .nav-link:hover {
+        color: #1c1917;
+      }
+      #home.is-scrolled #menu-toggle {
+        color: #1c1917;
+      }
+      #home.is-over-dark {
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+      }
+      #home.is-over-dark .nav-link {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      #home.is-over-dark .nav-link:hover {
+        color: #fff;
+      }
+      #home.is-over-dark #menu-toggle {
+        color: #fff;
+      }
+      #home nav {
+        overflow: visible;
+      }
+      #home .site-logo-wrap {
+        position: relative;
+        flex-shrink: 0;
+        width: 3.875rem;
+        height: 2.5rem;
+      }
+      #home .site-logo {
+        position: absolute;
+        left: -5rem;
+        top: 50%;
+        height: 15rem;
+        width: auto;
+        max-width: none;
+        transform: translateY(calc(-50% + 2.5rem));
+        object-fit: contain;
+        display: block;
+        filter: brightness(0) invert(1)
+          drop-shadow(0 0 4px rgba(255, 255, 255, 1))
+          drop-shadow(0 0 14px rgba(255, 255, 255, 0.75))
+          drop-shadow(0 0 28px rgba(255, 255, 255, 0.45))
+          drop-shadow(0 0 48px rgba(255, 255, 255, 0.2));
+        transition: filter 0.35s ease;
+      }
+      #home.is-scrolled .site-logo {
+        filter: none;
+      }
+      #home.is-over-dark .site-logo {
+        filter: brightness(0) invert(1)
+          drop-shadow(0 0 4px rgba(255, 255, 255, 1))
+          drop-shadow(0 0 14px rgba(255, 255, 255, 0.75))
+          drop-shadow(0 0 28px rgba(255, 255, 255, 0.45))
+          drop-shadow(0 0 48px rgba(255, 255, 255, 0.2));
+      }
+      .about-feature-card {
+        --reveal: 0;
+        opacity: var(--reveal);
+        transform: translate3d(0, calc((1 - var(--reveal)) * 22px), 0)
+          scale(calc(0.965 + var(--reveal) * 0.035));
+        filter: blur(calc((1 - var(--reveal)) * 2px));
+        will-change: opacity, transform, filter;
+      }
+      .about-feature-card--1,
+      .about-feature-card--2,
+      .about-feature-card--3 {
+        --hero-enter: 0;
+        --card-visible: max(var(--reveal), var(--hero-enter));
+        opacity: var(--card-visible);
+        transform: translate3d(0, calc((1 - var(--card-visible)) * 22px), 0)
+          scale(calc(0.965 + var(--card-visible) * 0.035));
+        filter: blur(calc((1 - var(--card-visible)) * 2px));
+      }
+      .about-feature-card--1.is-hero-fixed,
+      .about-feature-card--2.is-hero-fixed,
+      .about-feature-card--3.is-hero-fixed {
+        filter: blur(calc((1 - var(--hero-enter)) * 2px));
+      }
+      .about-feature-card--1.is-hero-fixed {
+        z-index: 25;
+        pointer-events: none;
+      }
+      .about-feature-card-spacer {
+        max-width: 24rem;
+        min-height: 7.5rem;
+      }
+      .about-feature-card--1.is-over-hero h3 {
+        color: #fff;
+        text-shadow: 0 2px 28px rgba(0, 0, 0, 0.35);
+      }
+      .about-feature-card--1.is-over-hero p {
+        color: rgba(255, 255, 255, 0.82);
+        text-shadow: 0 1px 18px rgba(0, 0, 0, 0.28);
+      }
+      .about-feature-card--2.is-hero-fixed {
+        z-index: 25;
+        pointer-events: none;
+      }
+      .about-feature-card--2.is-over-hero h3 {
+        color: #fff;
+        text-shadow: 0 2px 28px rgba(0, 0, 0, 0.35);
+      }
+      .about-feature-card--2.is-over-hero p {
+        color: rgba(255, 255, 255, 0.82);
+        text-shadow: 0 1px 18px rgba(0, 0, 0, 0.28);
+      }
+      .about-feature-card--3.is-hero-fixed {
+        z-index: 25;
+        pointer-events: none;
+      }
+      .about-feature-card--3.is-over-hero h3 {
+        color: #fff;
+        text-shadow: 0 2px 28px rgba(0, 0, 0, 0.35);
+      }
+      .about-feature-card--3.is-over-hero p {
+        color: rgba(255, 255, 255, 0.82);
+        text-shadow: 0 1px 18px rgba(0, 0, 0, 0.28);
+      }
+      .about-feature-card.is-visible {
+        will-change: auto;
+        filter: none;
+        transform: none;
+      }
+      .section-mesh {
+        position: relative;
+        overflow: hidden;
+        background-color: #fafaf9;
+        isolation: isolate;
+      }
+      .section-mesh::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse 80% 58% at 14% 16%, rgba(255, 228, 210, 0.42), transparent 56%),
+          radial-gradient(ellipse 72% 52% at 86% 20%, rgba(210, 228, 248, 0.36), transparent 54%),
+          radial-gradient(ellipse 64% 48% at 78% 82%, rgba(205, 236, 220, 0.34), transparent 52%),
+          radial-gradient(ellipse 58% 44% at 18% 78%, rgba(235, 220, 248, 0.3), transparent 50%),
+          radial-gradient(ellipse 50% 40% at 52% 48%, rgba(255, 244, 220, 0.22), transparent 58%),
+          linear-gradient(180deg, #fafaf9 0%, #f7f5f2 46%, #f3f0ec 100%);
+      }
+      .section-mesh::after {
+        content: '';
+        position: absolute;
+        inset: -15%;
+        z-index: 0;
+        pointer-events: none;
+        opacity: 0.55;
+        filter: blur(72px);
+        background:
+          radial-gradient(circle at 30% 40%, rgba(255, 214, 198, 0.55), transparent 58%),
+          radial-gradient(circle at 70% 60%, rgba(198, 228, 245, 0.45), transparent 56%);
+        animation: section-mesh-drift 26s ease-in-out infinite;
+      }
+      .section-mesh > * {
+        position: relative;
+        z-index: 1;
+      }
+      #about.section-mesh::before,
+      #portfolio.section-mesh::before {
+        background:
+          radial-gradient(ellipse 78% 56% at 88% 14%, rgba(210, 228, 248, 0.4), transparent 55%),
+          radial-gradient(ellipse 68% 52% at 12% 72%, rgba(255, 228, 210, 0.38), transparent 54%),
+          radial-gradient(ellipse 60% 48% at 48% 42%, rgba(220, 245, 230, 0.3), transparent 52%),
+          radial-gradient(ellipse 54% 42% at 82% 78%, rgba(235, 220, 248, 0.26), transparent 48%),
+          linear-gradient(
+            180deg,
+            #fafaf9 0%,
+            #f6f4f1 44%,
+            #f2efe9 72%,
+            #f0ece6 88%,
+            #f4f1ec 100%
+          );
+      }
+      #faq.section-mesh::before {
+        background:
+          radial-gradient(ellipse 100% 55% at 50% 0%, rgba(210, 228, 248, 0.32) 0%, transparent 58%),
+          radial-gradient(ellipse 72% 48% at 12% 4%, rgba(255, 228, 210, 0.26) 0%, transparent 52%),
+          radial-gradient(ellipse 68% 44% at 88% 6%, rgba(205, 236, 220, 0.22) 0%, transparent 50%),
+          radial-gradient(ellipse 76% 54% at 18% 12%, rgba(235, 220, 248, 0.36), transparent 54%),
+          radial-gradient(ellipse 70% 50% at 84% 28%, rgba(255, 228, 210, 0.34), transparent 52%),
+          radial-gradient(ellipse 62% 48% at 42% 88%, rgba(210, 228, 248, 0.32), transparent 50%),
+          radial-gradient(ellipse 58% 44% at 76% 72%, rgba(205, 236, 220, 0.28), transparent 48%),
+          linear-gradient(
+            180deg,
+            #f0ece6 0%,
+            #f6f4f1 14%,
+            #f8f6f3 32%,
+            #f4f1ec 100%
+          );
+      }
+      #faq {
+        position: relative;
+        isolation: isolate;
+        margin-top: -4.5rem;
+        padding-top: 9.5rem;
+        overflow-x: clip;
+      }
+      @media (min-width: 640px) {
+        #faq {
+          margin-top: -5.5rem;
+          padding-top: 11.5rem;
+        }
+      }
+      @keyframes section-mesh-drift {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(2.5%, -2%, 0) scale(1.05);
+        }
+      }
+      .about-marquee {
+        width: 100vw;
+        max-width: 100vw;
+        margin-left: calc(50% - 50vw);
+        margin-top: 0;
+      }
+      .about-marquee__viewport {
+        overflow: hidden;
+        border-top: 1px solid #e7e5e4;
+        border-bottom: 1px solid #e7e5e4;
+        background: #fff;
+        padding: 1rem 0;
+        border-radius: 2rem 2rem 0 0;
+      }
+      @media (min-width: 640px) {
+        .about-marquee__viewport {
+          padding: 1.25rem 0;
+          border-radius: 2.5rem 2.5rem 0 0;
+        }
+      }
+      .about-marquee__track {
+        display: flex;
+        width: max-content;
+        animation: about-marquee-scroll 32s linear infinite;
+        will-change: transform;
+      }
+      .about-marquee__group {
+        display: flex;
+        flex-shrink: 0;
+        align-items: center;
+      }
+      .about-marquee__item {
+        flex-shrink: 0;
+        padding: 0 1.75rem;
+        font-size: 0.8125rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #1c1917;
+        white-space: nowrap;
+      }
+      @media (min-width: 640px) {
+        .about-marquee__item {
+          padding: 0 2.25rem;
+          font-size: 0.9375rem;
+        }
+      }
+      .about-marquee__sep {
+        flex-shrink: 0;
+        padding: 0 1.5rem;
+        font-size: 0.625rem;
+        font-weight: 600;
+        line-height: 1;
+        color: #a8a29e;
+      }
+      @media (min-width: 640px) {
+        .about-marquee__sep {
+          padding: 0 2rem;
+          font-size: 0.75rem;
+        }
+      }
+      @keyframes about-marquee-scroll {
+        from {
+          transform: translate3d(0, 0, 0);
+        }
+        to {
+          transform: translate3d(-50%, 0, 0);
+        }
+      }
+      @keyframes circular-badge-spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .circular-badge {
+        position: relative;
+        flex-shrink: 0;
+        width: 120px;
+        height: 120px;
+        color: #64748b;
+      }
+      @media (min-width: 640px) {
+        .circular-badge {
+          width: 150px;
+          height: 150px;
+        }
+      }
+      .circular-badge__ring {
+        display: block;
+        width: 100%;
+        height: 100%;
+        animation: circular-badge-spin 15s linear infinite;
+      }
+      .circular-badge__ring text {
+        font-family: Inter, system-ui, sans-serif;
+        font-size: 10px;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        fill: currentColor;
+        text-transform: uppercase;
+      }
+      @media (min-width: 640px) {
+        .circular-badge__ring text {
+          font-size: 10.5px;
+        }
+      }
+      .circular-badge__arrow {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 28%;
+        height: 28%;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+      }
+      .circular-badge__arrow path {
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.5;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+      .career-modal {
+        margin: auto;
+        max-width: min(22rem, calc(100vw - 2rem));
+        border: none;
+        padding: 0;
+        background: transparent;
+        color: #1c1917;
+      }
+      .career-modal::backdrop {
+        background: rgba(28, 25, 23, 0.55);
+        backdrop-filter: blur(6px);
+      }
+      .career-modal[open] .career-modal__panel {
+        animation: career-modal-pop 0.28s cubic-bezier(0.33, 1, 0.68, 1);
+      }
+      @keyframes career-modal-pop {
+        from {
+          opacity: 0;
+          transform: scale(0.94) translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: scale(1) translateY(0);
+        }
+      }
+      .career-modal__panel {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1.25rem;
+        background: #fafaf9;
+        padding: 1.75rem 1.5rem 1.5rem;
+        box-shadow: 0 24px 60px rgba(28, 25, 23, 0.22);
+      }
+      .career-modal__close {
+        position: absolute;
+        top: 0.85rem;
+        right: 0.85rem;
+        display: flex;
+        height: 2rem;
+        width: 2rem;
+        align-items: center;
+        justify-content: center;
+        border: none;
+        border-radius: 9999px;
+        background: rgba(28, 25, 23, 0.06);
+        color: #57534e;
+        font-size: 1.25rem;
+        line-height: 1;
+        cursor: pointer;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+      .career-modal__close:hover {
+        background: rgba(28, 25, 23, 0.1);
+        color: #1c1917;
+      }
+      .career-modal__label {
+        margin-bottom: 0.5rem;
+        font-size: 0.6875rem;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #2d5a50;
+      }
+      .career-modal__title {
+        padding-right: 2rem;
+        font-size: 1.35rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.25;
+        color: #1c1917;
+      }
+      .career-modal__text {
+        margin-top: 0.75rem;
+        font-size: 0.9375rem;
+        line-height: 1.6;
+        color: #57534e;
+      }
+      .career-modal__contacts {
+        margin-top: 1.25rem;
+        display: grid;
+        gap: 0.65rem;
+      }
+      .career-modal__contacts a {
+        display: flex;
+        align-items: center;
+        gap: 0.65rem;
+        border-radius: 0.75rem;
+        background: #fff;
+        padding: 0.75rem 0.9rem;
+        font-size: 0.875rem;
+        color: #1c1917;
+        box-shadow: 0 4px 16px rgba(28, 25, 23, 0.06);
+        transition: color 0.2s ease, box-shadow 0.2s ease;
+      }
+      .career-modal__contacts a:hover {
+        color: #1a3a34;
+        box-shadow: 0 6px 20px rgba(28, 25, 23, 0.1);
+      }
+      .career-modal__icon {
+        display: flex;
+        height: 2rem;
+        width: 2rem;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+        border-radius: 9999px;
+        background: rgba(26, 58, 52, 0.08);
+        font-size: 0.875rem;
+        color: #1a3a34;
+      }
+      #services,
+      #contact {
+        isolation: isolate;
+        border-top: none;
+        color: #fff;
+        overflow-x: clip;
+      }
+      .portfolio-stack {
+        position: relative;
+        isolation: isolate;
+      }
+      .portfolio-stack::after {
+        content: '';
+        display: block;
+        height: clamp(5rem, 14vh, 9rem);
+        margin-top: -2.5rem;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse 90% 90% at 50% 100%, rgba(210, 228, 248, 0.22) 0%, transparent 58%),
+          radial-gradient(ellipse 65% 70% at 18% 100%, rgba(255, 228, 210, 0.18) 0%, transparent 52%),
+          radial-gradient(ellipse 60% 65% at 82% 95%, rgba(205, 236, 220, 0.16) 0%, transparent 50%),
+          linear-gradient(180deg, rgba(240, 236, 230, 0.4) 0%, #f4f1ec 55%, #f8f6f3 100%);
+        filter: blur(40px);
+        transform: scaleY(1.1);
+        transform-origin: bottom center;
+      }
+      #services {
+        --stack-depth: 0;
+        position: sticky;
+        top: 0;
+        z-index: 30;
+        min-height: 100vh;
+        margin-top: 0;
+        padding-top: 8rem;
+        padding-bottom: 5rem;
+        background: linear-gradient(
+          180deg,
+          #f0ece6 0%,
+          #b8c0b8 2.5rem,
+          #8f9892 5rem,
+          #5c6360 7.5rem,
+          #343638 10rem,
+          #141416 12.5rem,
+          #000 15rem
+        );
+      }
+      #services > .mx-auto {
+        transform: scale(calc(1 - var(--stack-depth) * 0.05));
+        transform-origin: center top;
+        filter: brightness(calc(1 - var(--stack-depth) * 0.22));
+        transition: transform 0.15s ease-out, filter 0.15s ease-out;
+      }
+      #portfolio {
+        position: sticky;
+        top: 0;
+        z-index: 31;
+        min-height: 100vh;
+        border-radius: 2rem 2rem 0 0;
+        box-shadow: 0 -28px 90px rgba(0, 0, 0, 0.22);
+        padding-bottom: 4rem;
+      }
+      @media (min-width: 640px) {
+        #portfolio {
+          border-radius: 2.5rem 2.5rem 0 0;
+          padding-bottom: 5.5rem;
+        }
+      }
+      #contact {
+        margin-top: -12rem;
+        padding-top: 18rem;
+        overflow: hidden;
+        background-color: #1a3a34;
+        background-image: linear-gradient(
+          180deg,
+          #f4f1ec 0%,
+          rgba(228, 235, 228, 0.92) 5rem,
+          rgba(175, 195, 185, 0.72) 10rem,
+          rgba(95, 120, 110, 0.62) 16rem,
+          rgba(40, 68, 60, 0.78) 21rem,
+          rgba(26, 58, 52, 0.94) 26rem,
+          #1a3a34 31rem
+        );
+      }
+      #services::before {
+        content: '';
+        position: absolute;
+        top: -7rem;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 16rem;
+        z-index: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(ellipse 100% 70% at 50% 100%, rgba(130, 200, 175, 0.28) 0%, transparent 58%),
+          radial-gradient(ellipse 68% 55% at 18% 92%, rgba(110, 170, 215, 0.22) 0%, transparent 52%),
+          radial-gradient(ellipse 62% 50% at 82% 88%, rgba(160, 150, 205, 0.18) 0%, transparent 48%),
+          linear-gradient(
+            180deg,
+            rgba(240, 236, 230, 0.7) 0%,
+            rgba(240, 236, 230, 0.2) 18%,
+            transparent 50%
+          );
+        filter: blur(56px);
+        transform: scaleY(1.04);
+        transform-origin: bottom center;
+      }
+      #services > .mx-auto,
+      #contact > .mx-auto {
+        position: relative;
+        z-index: 1;
+      }
+      @media (min-width: 640px) {
+        #services {
+          margin-top: 0;
+          padding-top: 10rem;
+          padding-bottom: 7rem;
+          background: linear-gradient(
+            180deg,
+            #f0ece6 0%,
+            #b8c0b8 3rem,
+            #8f9892 5.5rem,
+            #5c6360 8.5rem,
+            #343638 11.5rem,
+            #141416 14.5rem,
+            #000 18rem
+          );
+        }
+        #contact {
+          margin-top: -14rem;
+          padding-top: 20rem;
+          background-image: linear-gradient(
+            180deg,
+            #f4f1ec 0%,
+            rgba(228, 235, 228, 0.9) 6rem,
+            rgba(165, 190, 178, 0.68) 12rem,
+            rgba(85, 110, 100, 0.58) 18rem,
+            rgba(35, 62, 55, 0.76) 24rem,
+            rgba(26, 58, 52, 0.93) 29rem,
+            #1a3a34 34rem
+          );
+        }
+        #services::before {
+          top: -8rem;
+          height: 18rem;
+          filter: blur(64px);
+        }
+      }
+      #services h2,
+      #services h3 {
+        color: #fff;
+      }
+      #services p,
+      #services li {
+        color: rgba(255, 255, 255, 0.75);
+      }
+      #services .services-label {
+        color: rgba(255, 255, 255, 0.6);
+      }
+      #services .tab-btn:not(.is-active) {
+        border-color: rgba(255, 255, 255, 0.2);
+        color: rgba(255, 255, 255, 0.7);
+      }
+      #services .tab-btn:not(.is-active):hover {
+        border-color: rgba(255, 255, 255, 0.4);
+        color: #fff;
+      }
+      .footer-watermark {
+        width: 100%;
+        overflow: hidden;
+        pointer-events: none;
+        user-select: none;
+        -webkit-user-select: none;
+        line-height: 0;
+      }
+      .footer-watermark__text {
+        display: block;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-family: Inter, system-ui, sans-serif;
+        font-weight: 900;
+        font-size: clamp(5rem, 18vw, 17rem);
+        line-height: 0.75;
+        letter-spacing: -0.04em;
+        white-space: nowrap;
+        color: #fff;
+        opacity: 0.12;
+        transform: translateY(20%);
+      }
+      [data-accordion-panel] {
+        display: grid;
+        grid-template-rows: 0fr;
+        transition: grid-template-rows 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+      }
+      [data-accordion-panel].is-open {
+        grid-template-rows: 1fr;
+      }
+      [data-accordion-panel] > div {
+        overflow: hidden;
+        min-height: 0;
+      }
+      [data-accordion-panel] > div > p {
+        opacity: 0;
+        transform: translateY(-5px);
+        transition:
+          opacity 0.16s cubic-bezier(0.33, 1, 0.68, 1),
+          transform 0.16s cubic-bezier(0.33, 1, 0.68, 1);
+      }
+      [data-accordion-panel].is-open > div > p {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.03s;
+      }
+      [data-accordion-icon] {
+        transition: transform 0.2s cubic-bezier(0.33, 1, 0.68, 1);
+      }
+      [data-accordion-item].is-open [data-accordion-icon] {
+        transform: rotate(45deg);
+      }
+      .tab-panel {
+        display: none;
+        animation: fadeIn 0.4s ease;
+      }
+      .tab-panel.is-active {
+        display: block;
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      #hero-content {
+        will-change: transform, opacity, filter;
+      }
+      #about {
+        will-change: transform, opacity, border-radius;
+        transform-origin: center top;
+      }
+      @keyframes hero-scroll-pulse {
+        0%,
+        100% {
+          transform: translateY(0);
+          opacity: 0.45;
+        }
+        50% {
+          transform: translateY(6px);
+          opacity: 1;
+        }
+      }
+      #hero-scroll-hint {
+        animation: hero-scroll-pulse 2s ease-in-out infinite;
+      }
+      .hero-video {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+        background-color: #1c1917;
+      }
+      .hero-video__media {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .hero-video__overlay {
+        position: absolute;
+        inset: 0;
+        z-index: 1;
+        background:
+          linear-gradient(180deg, rgba(0, 0, 0, 0.55) 0%, rgba(0, 0, 0, 0.4) 45%, rgba(0, 0, 0, 0.65) 100%);
+      }
+      .hero-video__fade {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 2;
+        height: 12rem;
+        background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+      }
+      .hero-mesh {
+        background-color: #fafaf9;
+      }
+      .hero-mesh__base {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 90% 70% at 50% 0%, rgba(255, 255, 255, 0.95), transparent 58%),
+          radial-gradient(ellipse 55% 45% at 100% 35%, rgba(235, 228, 216, 0.55), transparent 52%),
+          linear-gradient(180deg, #fafaf9 0%, #f5f5f4 48%, #ece7dd 100%);
+      }
+      .hero-mesh__blob {
+        position: absolute;
+        border-radius: 9999px;
+        filter: blur(72px);
+        will-change: transform;
+      }
+      .hero-mesh__blob--beige {
+        left: -12%;
+        top: 8%;
+        width: min(52vw, 520px);
+        height: min(52vw, 520px);
+        background: radial-gradient(circle at 35% 35%, rgba(255, 228, 196, 0.82), rgba(245, 235, 220, 0.35) 58%, transparent 72%);
+        animation: hero-mesh-drift-a 24s ease-in-out infinite;
+      }
+      .hero-mesh__blob--stone {
+        right: -8%;
+        top: -6%;
+        width: min(48vw, 480px);
+        height: min(48vw, 480px);
+        background: radial-gradient(circle at 60% 40%, rgba(255, 255, 255, 0.92), rgba(250, 250, 249, 0.4) 55%, transparent 70%);
+        animation: hero-mesh-drift-b 20s ease-in-out infinite;
+      }
+      .hero-mesh__blob--green {
+        left: 38%;
+        bottom: -18%;
+        width: min(44vw, 440px);
+        height: min(44vw, 440px);
+        background: radial-gradient(circle at 50% 50%, rgba(26, 58, 52, 0.16), rgba(45, 90, 80, 0.07) 52%, transparent 72%);
+        animation: hero-mesh-drift-c 28s ease-in-out infinite;
+      }
+      .hero-mesh__blob--warm {
+        left: 8%;
+        bottom: 10%;
+        width: min(36vw, 360px);
+        height: min(36vw, 360px);
+        background: radial-gradient(circle at 40% 60%, rgba(214, 203, 186, 0.45), transparent 68%);
+        animation: hero-mesh-drift-d 18s ease-in-out infinite;
+      }
+      .hero-mesh__ambient {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse 80% 55% at 18% 22%, rgba(255, 255, 255, 0.55), transparent 58%),
+          radial-gradient(ellipse 70% 50% at 82% 68%, rgba(26, 58, 52, 0.06), transparent 55%),
+          linear-gradient(180deg, rgba(255, 255, 255, 0.28) 0%, transparent 38%, rgba(236, 231, 221, 0.35) 100%);
+      }
+      .hero-mesh__grain {
+        position: absolute;
+        inset: 0;
+        opacity: 0.055;
+        mix-blend-mode: multiply;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-size: 180px 180px;
+      }
+      .hero-mesh__fade {
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 9rem;
+        background: linear-gradient(to top, rgba(250, 250, 249, 0.95), rgba(250, 250, 249, 0));
+      }
+      @keyframes hero-mesh-drift-a {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(4%, 3%, 0) scale(1.06);
+        }
+      }
+      @keyframes hero-mesh-drift-b {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(-5%, 2%, 0) scale(1.04);
+        }
+      }
+      @keyframes hero-mesh-drift-c {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(3%, -4%, 0) scale(1.08);
+        }
+      }
+      @keyframes hero-mesh-drift-d {
+        0%,
+        100% {
+          transform: translate3d(0, 0, 0) scale(1);
+        }
+        50% {
+          transform: translate3d(-3%, -2%, 0) scale(1.05);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .hero-mesh__blob {
+          animation: none !important;
+        }
+        .hero-video__media {
+          display: none;
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        #hero-content,
+        #about {
+          will-change: auto;
+          transform: none !important;
+          opacity: 1 !important;
+          filter: none !important;
+          border-radius: 0 !important;
+        }
+        #hero-scroll-hint {
+          display: none;
+        }
+        .about-feature-card {
+          opacity: 1 !important;
+          transform: none !important;
+          filter: none !important;
+          transition: none !important;
+        }
+        .about-feature-card--1,
+        .about-feature-card--2,
+        .about-feature-card--3 {
+          --hero-enter: 1 !important;
+          --reveal: 1 !important;
+        }
+        .section-mesh::after {
+          animation: none !important;
+        }
+        #services::before {
+          filter: blur(48px) !important;
+          transform: none !important;
+        }
+        #services {
+          position: static;
+          min-height: 0;
+        }
+        #services > .mx-auto {
+          transform: none !important;
+          filter: none !important;
+          transition: none !important;
+        }
+        #portfolio {
+          position: static;
+          min-height: 0;
+          border-radius: 0;
+          box-shadow: none;
+        }
+        .portfolio-stack {
+          isolation: auto;
+        }
+        .about-marquee__track {
+          animation: none !important;
+          transform: none !important;
+        }
+        .about-marquee__group[aria-hidden='true'] {
+          display: none;
+        }
+        .circular-badge__ring {
+          animation: none !important;
+        }
+        .career-modal[open] .career-modal__panel {
+          animation: none !important;
+        }
+      }
+    </style>
+  </head>
+  <body class="overflow-x-hidden bg-stone-50 font-sans text-slate-ink antialiased">
+    <!-- 1. Navigation -->
+    <header
+      id="home"
+      class="fixed inset-x-0 top-0 z-[100] bg-transparent"
+    >
+      <nav class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 lg:px-8">
+        <a
+          href="#home"
+          class="site-logo-wrap transition-opacity hover:opacity-80"
+          aria-label="ARNDSGN Home"
+        >
+          <img
+            src="images/logo-nav.png"
+            alt="ARNDSGN"
+            class="site-logo"
+            width="369"
+            height="240"
+          />
+        </a>
+
+        <ul class="hidden items-center gap-8 md:flex">
+          <li>
+            <a
+              href="#home"
+              class="nav-link text-sm font-medium"
+              >Home</a
+            >
+          </li>
+          <li>
+            <a
+              href="#services"
+              class="nav-link text-sm font-medium"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="#portfolio"
+              class="nav-link text-sm font-medium"
+              >Portfolio</a
+            >
+          </li>
+          <li>
+            <a
+              href="#faq"
+              class="nav-link text-sm font-medium"
+              >FAQ</a
+            >
+          </li>
+          <li>
+            <a
+              href="ueber-uns.html"
+              class="nav-link text-sm font-medium"
+              >Über uns</a
+            >
+          </li>
+        </ul>
+
+        <div class="flex items-center gap-3">
+          <a
+            href="projekt.html"
+            class="hidden rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition-all hover:bg-accent-hover hover:shadow-card sm:inline-flex"
+          >
+            Start Project
+          </a>
+          <button
+            id="menu-toggle"
+            type="button"
+            class="inline-flex rounded-lg border border-transparent p-2 md:hidden"
+            aria-label="Menü öffnen"
+            aria-expanded="false"
+          >
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path id="menu-icon-open" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
+            </svg>
+          </button>
+        </div>
+      </nav>
+
+      <div id="mobile-menu" class="hidden border-t border-stone-200 bg-stone-50 px-5 py-4 md:hidden">
+        <ul class="flex flex-col gap-4">
+          <li><a href="#home" class="mobile-link block text-sm font-medium">Home</a></li>
+          <li><a href="#services" class="mobile-link block text-sm font-medium">Services</a></li>
+          <li><a href="#portfolio" class="mobile-link block text-sm font-medium">Portfolio</a></li>
+          <li><a href="#faq" class="mobile-link block text-sm font-medium">FAQ</a></li>
+          <li><a href="ueber-uns.html" class="mobile-link block text-sm font-medium">Über uns</a></li>
+          <li>
+            <a
+              href="projekt.html"
+              class="mobile-link mt-2 inline-flex rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white"
+            >
+              Start Project
+            </a>
+          </li>
+        </ul>
+      </div>
+    </header>
+
+    <main>
+      <!-- 2. Hero — scroll stage: rein in Section 2 tauchen -->
+      <div id="hero-scroll-stage" class="relative h-[200vh]">
+        <section
+          id="hero"
+          class="sticky top-0 z-10 flex h-screen items-center overflow-hidden px-5 sm:px-8"
+        >
+          <div class="hero-video pointer-events-none absolute inset-0" aria-hidden="true">
+            <video
+              class="hero-video__media"
+              autoplay
+              muted
+              loop
+              playsinline
+              preload="auto"
+              src="images/hero section backround.mp4"
+            ></video>
+            <div class="hero-video__overlay"></div>
+            <div class="hero-video__fade"></div>
+          </div>
+
+          <div id="hero-content" class="relative z-10 mx-auto w-full max-w-7xl">
+            <div class="max-w-3xl">
+              <p class="mb-5 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+                Premium Webdesign Agentur
+              </p>
+              <h1
+                class="text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-6xl"
+              >
+                Webdesign, auf das Sie sich verlassen können
+              </h1>
+              <p class="mt-6 max-w-2xl text-lg leading-relaxed text-white sm:text-xl">
+                Wir gestalten digitale Erlebnisse, die Vertrauen aufbauen, Ihre Marke stärken und
+                Besucher in Kunden verwandeln — mit Liebe zum Detail und Fokus auf messbare
+                Ergebnisse.
+              </p>
+              <div class="mt-10 flex flex-wrap items-center gap-5">
+                <a
+                  href="#portfolio"
+                  class="inline-flex rounded-full bg-accent px-7 py-3.5 text-sm font-semibold text-white shadow-soft transition-all hover:bg-accent-hover hover:shadow-card active:scale-[0.98]"
+                >
+                  View Portfolio
+                </a>
+                <a
+                  href="#services"
+                  class="group inline-flex items-center gap-2 text-sm font-semibold text-white transition-colors hover:text-white/80"
+                >
+                  Our Services
+                  <span
+                    class="inline-block transition-transform group-hover:translate-x-1"
+                    aria-hidden="true"
+                    >→</span
+                  >
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div
+            id="hero-scroll-hint"
+            class="pointer-events-none absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2 text-white/60"
+            aria-hidden="true"
+          >
+            <span class="text-[0.65rem] font-semibold uppercase tracking-[0.22em]">Scroll</span>
+            <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
+        </section>
+      </div>
+
+      <!-- 3. About / Why Choose Us -->
+      <section
+        id="about"
+        class="section-mesh relative z-20 -mt-[100vh] rounded-t-[2rem] px-5 pb-28 sm:px-8 sm:pb-36 sm:rounded-t-[2.5rem]"
+      >
+        <div class="about-marquee" role="region" aria-label="Webdesign und KI-Entwicklung">
+          <div class="about-marquee__viewport">
+            <div class="about-marquee__track">
+              <div class="about-marquee__group">
+                <span class="about-marquee__item">Webdesign</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">Frontend Development</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">AI-gestütztes Coding</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">Custom Websites</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">React & Next.js</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">E-Commerce</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">Responsive UI</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">API Integration</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+              </div>
+              <div class="about-marquee__group" aria-hidden="true">
+                <span class="about-marquee__item">Webdesign</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">Frontend Development</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">AI-gestütztes Coding</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">Custom Websites</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">React & Next.js</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">E-Commerce</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">Responsive UI</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+                <span class="about-marquee__item">API Integration</span>
+                <span class="about-marquee__sep" aria-hidden="true">•</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="mx-auto max-w-7xl pt-14 sm:pt-20">
+          <div class="flex items-start gap-5 sm:gap-8 lg:gap-12">
+            <div class="min-w-0 max-w-2xl flex-1">
+              <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent-light">
+                Warum ARNDSGN
+              </p>
+              <h2 class="text-3xl font-bold tracking-tight text-slate-ink sm:text-4xl">
+                Premium Service mit Fokus auf Conversion
+              </h2>
+              <p class="mt-5 text-base leading-relaxed text-slate-muted sm:text-lg">
+                Wir verbinden ästhetisches Design mit strategischem Denken. Jede Seite wird
+                individuell entwickelt — keine Templates, keine Kompromisse. Unser Ziel: Websites,
+                die nicht nur beeindrucken, sondern verkaufen.
+              </p>
+              <p class="mt-4 text-base leading-relaxed text-slate-muted">
+                Von der ersten Idee bis zum Launch begleiten wir Sie persönlich. Klare Strukturen,
+                schnelle Ladezeiten und durchdachte User Journeys stehen im Mittelpunkt.
+              </p>
+            </div>
+
+            <aside class="circular-badge shrink-0" aria-label="ARNDSGN 2026">
+              <svg
+                class="circular-badge__ring"
+                viewBox="0 0 150 150"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <defs>
+                  <path
+                    id="about-badge-circle"
+                    d="M 75,75 m -54,0 a 54,54 0 1,1 108,0 a 54,54 0 1,1 -108,0"
+                  />
+                </defs>
+                <text>
+                  <textPath href="#about-badge-circle" startOffset="0">
+                    ARNDSGN 2026 • ARNDSGN 2026 • ARNDSGN 2026 •
+                  </textPath>
+                </text>
+              </svg>
+              <svg
+                class="circular-badge__arrow"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path d="M7 17L17 7M17 7H10M17 7V14" />
+              </svg>
+            </aside>
+          </div>
+
+          <div class="mt-20 grid gap-12 sm:grid-cols-2 sm:gap-14 lg:grid-cols-3 lg:gap-16">
+            <div class="relative max-w-sm">
+              <div class="about-feature-card-spacer min-h-[7.5rem]" aria-hidden="true"></div>
+              <article class="about-feature-card about-feature-card--1 max-w-sm">
+                <h3 class="font-serif text-[2rem] leading-[1.1] tracking-tight text-slate-ink sm:text-[2.35rem]">
+                  Professional Team
+                </h3>
+                <p class="mt-5 font-serif text-base italic leading-relaxed text-slate-muted sm:text-lg">
+                  Erfahrene Designer und Entwickler arbeiten Hand in Hand — für Ergebnisse auf
+                  Agentur-Niveau.
+                </p>
+              </article>
+            </div>
+
+            <div class="relative max-w-sm">
+              <div class="about-feature-card-spacer min-h-[7.5rem]" aria-hidden="true"></div>
+              <article class="about-feature-card about-feature-card--2 max-w-sm">
+                <h3 class="font-mono text-base font-medium uppercase tracking-[0.14em] text-accent sm:text-lg">
+                  Custom Code
+                </h3>
+                <p class="mt-4 font-mono text-xs leading-[1.7] text-slate-muted sm:text-sm">
+                  Sauberer, wartbarer Code ohne Bloat — individuell auf Ihre Marke und Anforderungen
+                  zugeschnitten.
+                </p>
+              </article>
+            </div>
+
+            <div class="relative max-w-sm sm:col-span-2 lg:col-span-1">
+              <div class="about-feature-card-spacer min-h-[7rem]" aria-hidden="true"></div>
+              <article class="about-feature-card about-feature-card--3 max-w-sm">
+                <h3 class="font-display text-[1.65rem] font-bold uppercase leading-none tracking-[-0.02em] text-slate-ink sm:text-3xl">
+                  Fast Delivery
+                </h3>
+                <p class="mt-4 font-display text-[0.8125rem] font-medium uppercase leading-relaxed tracking-[0.06em] text-slate-muted sm:text-sm">
+                  Strukturierte Prozesse und klare Meilensteine sorgen für schnelle, zuverlässige
+                  Projektabwicklung.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 4–5. Services + Portfolio (card swipe) -->
+      <div class="portfolio-stack">
+      <section id="services" class="px-5 sm:px-8">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-14 max-w-2xl">
+            <p class="services-label mb-4 text-xs font-semibold uppercase tracking-[0.2em]">
+              Unsere Leistungen
+            </p>
+            <h2 class="text-3xl font-bold tracking-tight sm:text-4xl">
+              Services, die Wirkung zeigen
+            </h2>
+          </div>
+
+          <div class="grid gap-10 lg:grid-cols-[minmax(0,280px)_1fr] lg:gap-16">
+            <div class="flex flex-row flex-wrap gap-2 lg:flex-col lg:gap-3" role="tablist" aria-label="Services">
+              <button
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="panel-websites"
+                id="tab-websites"
+                data-tab="websites"
+                class="tab-btn rounded-full border px-5 py-2.5 text-left text-sm font-semibold transition-all lg:w-full lg:rounded-xl lg:px-5 lg:py-4 is-active bg-accent text-white border-accent shadow-soft"
+              >
+                Custom Websites
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-ecommerce"
+                id="tab-ecommerce"
+                data-tab="ecommerce"
+                class="tab-btn rounded-full border px-5 py-2.5 text-left text-sm font-semibold transition-all lg:w-full lg:rounded-xl lg:px-5 lg:py-4"
+              >
+                E-Commerce
+              </button>
+              <button
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="panel-seo"
+                id="tab-seo"
+                data-tab="seo"
+                class="tab-btn rounded-full border px-5 py-2.5 text-left text-sm font-semibold transition-all lg:w-full lg:rounded-xl lg:px-5 lg:py-4"
+              >
+                SEO Optimization
+              </button>
+            </div>
+
+            <div class="min-h-[320px]">
+              <div
+                id="panel-websites"
+                role="tabpanel"
+                aria-labelledby="tab-websites"
+                data-panel="websites"
+                class="tab-panel is-active"
+              >
+                <div>
+                  <h3 class="text-2xl font-bold">Individuelle Websites</h3>
+                  <p class="mt-4 text-base leading-relaxed">
+                    Maßgeschneiderte Unternehmenswebsites mit klarer Struktur, responsivem Design
+                    und optimierter Performance. Wir übersetzen Ihre Markenidentität in ein
+                    digitales Erlebnis, das Vertrauen schafft.
+                  </p>
+                  <ul class="mt-6 space-y-2 text-sm">
+                    <li class="flex items-center gap-2">
+                      <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+                      Responsive & barrierearm
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+                      CMS-Integration optional
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+                      Conversion-optimierte Layouts
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div
+                id="panel-ecommerce"
+                role="tabpanel"
+                aria-labelledby="tab-ecommerce"
+                data-panel="ecommerce"
+                class="tab-panel"
+                hidden
+              >
+                <div>
+                  <h3 class="text-2xl font-bold">E-Commerce Lösungen</h3>
+                  <p class="mt-4 text-base leading-relaxed">
+                    Online-Shops, die verkaufen: intuitive Navigation, sichere Checkout-Flows und
+                    skalierbare Architektur. Wir bauen Shops, die Ihre Produkte ins beste Licht
+                    rücken.
+                  </p>
+                  <ul class="mt-6 space-y-2 text-sm">
+                    <li class="flex items-center gap-2">
+                      <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+                      Shopify, WooCommerce & Custom
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+                      Payment & Versand-Integration
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+                      Produkt-UX & Warenkorb-Optimierung
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <div
+                id="panel-seo"
+                role="tabpanel"
+                aria-labelledby="tab-seo"
+                data-panel="seo"
+                class="tab-panel"
+                hidden
+              >
+                <div>
+                  <h3 class="text-2xl font-bold">SEO Optimization</h3>
+                  <p class="mt-4 text-base leading-relaxed">
+                    Technisches SEO, saubere Struktur und Content-Strategie für bessere
+                    Sichtbarkeit. Wir sorgen dafür, dass Ihre Website nicht nur schön aussieht,
+                    sondern auch gefunden wird.
+                  </p>
+                  <ul class="mt-6 space-y-2 text-sm">
+                    <li class="flex items-center gap-2">
+                      <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+                      Core Web Vitals Optimierung
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+                      On-Page & technisches SEO
+                    </li>
+                    <li class="flex items-center gap-2">
+                      <span class="h-1.5 w-1.5 rounded-full bg-accent"></span>
+                      Analytics & Tracking Setup
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 5. Portfolio -->
+      <section id="portfolio" class="section-mesh px-5 py-20 sm:px-8 sm:py-28">
+        <div class="mx-auto max-w-7xl">
+          <div class="mb-14 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent-light">
+                Ausgewählte Arbeiten
+              </p>
+              <h2 class="text-3xl font-bold tracking-tight text-slate-ink sm:text-4xl">
+                Must-See Projects
+              </h2>
+            </div>
+            <p class="max-w-md text-sm leading-relaxed text-slate-muted">
+              Eine Auswahl unserer Projekte — von Markenauftritten bis zu performanten Online-Shops.
+            </p>
+          </div>
+
+          <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
+            <article class="group">
+              <div class="overflow-hidden rounded-2xl bg-stone-200 shadow-soft">
+                <div
+                  class="aspect-[4/5] overflow-hidden transition-transform duration-500 ease-out group-hover:scale-105"
+                >
+                  <img
+                    src="images/handy-clean.png"
+                    alt="Nordlicht Consulting Handy Mockup"
+                    class="h-full w-full object-cover object-center"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div class="mt-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-accent-light">
+                  Corporate
+                </p>
+                <h3 class="mt-1 text-lg font-bold text-slate-ink">Nordlicht Consulting</h3>
+                <p class="mt-2 text-sm text-slate-muted">Markenwebsite & Lead-Generierung</p>
+              </div>
+            </article>
+
+            <article class="group">
+              <div class="overflow-hidden rounded-2xl bg-stone-200 shadow-soft">
+                <div
+                  class="aspect-[4/5] overflow-hidden transition-transform duration-500 ease-out group-hover:scale-105"
+                >
+                  <img
+                    src="images/tablet.png"
+                    alt="Atelier Forma Tablet Mockup"
+                    class="h-full w-full object-cover object-center"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div class="mt-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-accent-light">
+                  E-Commerce
+                </p>
+                <h3 class="mt-1 text-lg font-bold text-slate-ink">Atelier Forma</h3>
+                <p class="mt-2 text-sm text-slate-muted">Premium Shop & Produktstory</p>
+              </div>
+            </article>
+
+            <article class="group">
+              <div class="overflow-hidden rounded-2xl bg-stone-200 shadow-soft">
+                <div
+                  class="aspect-[4/5] overflow-hidden transition-transform duration-500 ease-out group-hover:scale-105"
+                >
+                  <img
+                    src="images/laptop.png"
+                    alt="FlowMetrics Laptop Mockup"
+                    class="h-full w-full object-cover object-center"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div class="mt-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-accent-light">
+                  SaaS
+                </p>
+                <h3 class="mt-1 text-lg font-bold text-slate-ink">FlowMetrics</h3>
+                <p class="mt-2 text-sm text-slate-muted">Landing Page & Conversion Funnel</p>
+              </div>
+            </article>
+
+            <article class="group">
+              <a
+                href="https://www.herzschlagimmobilie.de/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block"
+              >
+                <div class="overflow-hidden rounded-2xl bg-stone-200 shadow-soft">
+                  <div
+                    class="aspect-[4/5] overflow-hidden transition-transform duration-500 ease-out group-hover:scale-105"
+                  >
+                    <img
+                      src="images/herzschlag immobilie .png"
+                      alt="Herzschlag Immobilien Website"
+                      class="h-full w-full object-cover object-center"
+                      loading="lazy"
+                    />
+                  </div>
+                </div>
+              </a>
+              <div class="mt-5">
+                <p class="text-xs font-semibold uppercase tracking-wider text-accent-light">
+                  Immobilien
+                </p>
+                <h3 class="mt-1 text-lg font-bold text-slate-ink">
+                  <a
+                    href="https://www.herzschlagimmobilie.de/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="transition-colors hover:text-accent"
+                  >
+                    Herzschlag Immobilien
+                  </a>
+                </h3>
+                <p class="mt-2 text-sm text-slate-muted">Exposé-Plattform & Markenauftritt</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+      </div>
+
+      <!-- 6. FAQ -->
+      <section id="faq" class="section-mesh px-5 pb-40 pt-20 sm:px-8 sm:pb-52 sm:pt-28">
+        <div class="mx-auto max-w-3xl">
+          <div class="mb-12 text-center">
+            <p class="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-accent-light">
+              Häufige Fragen
+            </p>
+            <h2 class="text-3xl font-bold tracking-tight text-slate-ink sm:text-4xl">FAQ</h2>
+          </div>
+
+          <div class="divide-y divide-stone-200 border-y border-stone-200">
+            <div data-accordion-item class="py-1">
+              <button
+                type="button"
+                data-accordion-trigger
+                class="flex w-full items-center justify-between gap-4 py-5 text-left"
+                aria-expanded="false"
+              >
+                <span class="text-base font-semibold text-slate-ink sm:text-lg">
+                  Wie lange dauert ein typisches Webdesign-Projekt?
+                </span>
+                <span
+                  data-accordion-icon
+                  class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-stone-200 text-slate-ink"
+                  aria-hidden="true"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" d="M12 5v14M5 12h14" />
+                  </svg>
+                </span>
+              </button>
+              <div data-accordion-panel>
+                <div>
+                  <p class="pb-5 text-sm leading-relaxed text-slate-muted sm:text-base">
+                    Je nach Umfang rechnen wir mit 4–8 Wochen für eine Unternehmenswebsite und 8–12
+                    Wochen für komplexere E-Commerce-Projekte. Nach einem Erstgespräch erhalten Sie
+                    einen transparenten Zeitplan mit klaren Meilensteinen.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div data-accordion-item class="py-1">
+              <button
+                type="button"
+                data-accordion-trigger
+                class="flex w-full items-center justify-between gap-4 py-5 text-left"
+                aria-expanded="false"
+              >
+                <span class="text-base font-semibold text-slate-ink sm:text-lg">
+                  Arbeiten Sie mit festen Paketen oder individuellen Angeboten?
+                </span>
+                <span
+                  data-accordion-icon
+                  class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-stone-200 text-slate-ink"
+                  aria-hidden="true"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" d="M12 5v14M5 12h14" />
+                  </svg>
+                </span>
+              </button>
+              <div data-accordion-panel>
+                <div>
+                  <p class="pb-5 text-sm leading-relaxed text-slate-muted sm:text-base">
+                    Wir erstellen individuelle Angebote basierend auf Ihren Zielen, Inhalten und
+                    technischen Anforderungen. So zahlen Sie nur für das, was Ihr Projekt wirklich
+                    braucht — ohne versteckte Kosten.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div data-accordion-item class="py-1">
+              <button
+                type="button"
+                data-accordion-trigger
+                class="flex w-full items-center justify-between gap-4 py-5 text-left"
+                aria-expanded="false"
+              >
+                <span class="text-base font-semibold text-slate-ink sm:text-lg">
+                  Können Sie auch bestehende Websites überarbeiten?
+                </span>
+                <span
+                  data-accordion-icon
+                  class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-stone-200 text-slate-ink"
+                  aria-hidden="true"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" d="M12 5v14M5 12h14" />
+                  </svg>
+                </span>
+              </button>
+              <div data-accordion-panel>
+                <div>
+                  <p class="pb-5 text-sm leading-relaxed text-slate-muted sm:text-base">
+                    Ja. Wir analysieren Ihre bestehende Seite, identifizieren Schwachstellen in
+                    Design, UX und Performance und entwickeln einen klaren Relaunch- oder
+                    Optimierungsplan — Schritt für Schritt und ohne unnötigen Stillstand.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div data-accordion-item class="py-1">
+              <button
+                type="button"
+                data-accordion-trigger
+                class="flex w-full items-center justify-between gap-4 py-5 text-left"
+                aria-expanded="false"
+              >
+                <span class="text-base font-semibold text-slate-ink sm:text-lg">
+                  Bieten Sie Support nach dem Launch an?
+                </span>
+                <span
+                  data-accordion-icon
+                  class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-stone-200 text-slate-ink"
+                  aria-hidden="true"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" d="M12 5v14M5 12h14" />
+                  </svg>
+                </span>
+              </button>
+              <div data-accordion-panel>
+                <div>
+                  <p class="pb-5 text-sm leading-relaxed text-slate-muted sm:text-base">
+                    Selbstverständlich. Wir bieten Wartungs- und Support-Pakete für Updates,
+                    Sicherheit, kleinere Anpassungen und laufende SEO-Optimierung — damit Ihre
+                    Website langfristig performant bleibt.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- 7. Footer -->
+      <footer id="contact" class="text-white">
+      <div class="mx-auto max-w-7xl px-5 pb-16 sm:px-8 sm:pb-20">
+        <div class="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+          <div class="lg:col-span-1">
+            <p class="text-xl font-bold tracking-tight">ARNDSGN</p>
+            <p class="mt-4 text-sm leading-relaxed text-white/70">
+              Premium Webdesign für Marken, die online überzeugen wollen.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">Explore</h3>
+            <ul class="mt-5 space-y-3">
+              <li>
+                <a href="#home" class="text-sm text-white/80 transition-colors hover:text-white"
+                  >Home</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#services"
+                  class="text-sm text-white/80 transition-colors hover:text-white"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#portfolio"
+                  class="text-sm text-white/80 transition-colors hover:text-white"
+                  >Portfolio</a
+                >
+              </li>
+              <li>
+                <a href="#faq" class="text-sm text-white/80 transition-colors hover:text-white"
+                  >FAQ</a
+                >
+              </li>
+              <li>
+                <a href="projekt.html" class="text-sm text-white/80 transition-colors hover:text-white"
+                  >Projekt starten</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">Company</h3>
+            <ul class="mt-5 space-y-3">
+              <li>
+                <a href="ueber-uns.html" class="text-sm text-white/80 transition-colors hover:text-white">Über uns</a>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  id="career-open"
+                  class="cursor-pointer border-0 bg-transparent p-0 text-left text-sm text-white/80 transition-colors hover:text-white"
+                >
+                  Karriere
+                </button>
+              </li>
+              <li>
+                <a href="agb.html" class="text-sm text-white/80 transition-colors hover:text-white">AGB</a>
+              </li>
+              <li>
+                <a href="datenschutz.html" class="text-sm text-white/80 transition-colors hover:text-white"
+                  >Datenschutz</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-xs font-semibold uppercase tracking-[0.2em] text-white/50">
+              Get in Touch
+            </h3>
+            <ul class="mt-5 space-y-3">
+              <li>
+                <a
+                  href="mailto:arndsgn@arndsgn.com"
+                  class="text-sm text-white/80 transition-colors hover:text-white"
+                  >arndsgn@arndsgn.com</a
+                >
+              </li>
+              <li>
+                <a
+                  href="tel:+49151175553093"
+                  class="text-sm text-white/80 transition-colors hover:text-white"
+                  >+49 151175553093</a
+                >
+              </li>
+              <li class="pt-2 text-sm text-white/60">Düsseldorf · Remote EU-weit</li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 sm:flex-row"
+        >
+          <p class="text-xs text-white/50">© 2026 ARNDSGN. Alle Rechte vorbehalten.</p>
+          <a
+            href="projekt.html"
+            class="inline-flex rounded-full bg-white px-6 py-2.5 text-sm font-semibold text-accent transition-opacity hover:opacity-90"
+          >
+            Start Project
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-watermark" aria-hidden="true">
+        <p class="footer-watermark__text">ARNDSGN</p>
+      </div>
+    </footer>
+    </main>
+
+    <dialog id="career-modal" class="career-modal" aria-labelledby="career-modal-title">
+      <div class="career-modal__panel">
+        <button type="button" class="career-modal__close" id="career-close" aria-label="Schließen">
+          ×
+        </button>
+        <p class="career-modal__label">Karriere</p>
+        <h2 id="career-modal-title" class="career-modal__title">
+          Du möchtest bei uns arbeiten?
+        </h2>
+        <p class="career-modal__text">
+          Dann kontaktiere mich gerne direkt — ich freue mich auf deine Nachricht und melde mich
+          schnellstmöglich bei dir.
+        </p>
+        <div class="career-modal__contacts">
+          <a href="mailto:arndsgn@arndsgn.com">
+            <span class="career-modal__icon" aria-hidden="true">@</span>
+            arndsgn@arndsgn.com
+          </a>
+          <a href="tel:+49151175553093">
+            <span class="career-modal__icon" aria-hidden="true">☎</span>
+            +49 151175553093
+          </a>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+      const careerModal = document.getElementById('career-modal');
+      const careerOpen = document.getElementById('career-open');
+      const careerClose = document.getElementById('career-close');
+
+      careerOpen.addEventListener('click', () => {
+        careerModal.showModal();
+      });
+
+      careerClose.addEventListener('click', () => {
+        careerModal.close();
+      });
+
+      careerModal.addEventListener('click', (e) => {
+        if (e.target === careerModal) {
+          careerModal.close();
+        }
+      });
+
+      // Mobile menu
+      const menuToggle = document.getElementById('menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+
+      menuToggle.addEventListener('click', () => {
+        const isOpen = !mobileMenu.classList.contains('hidden');
+        mobileMenu.classList.toggle('hidden');
+        menuToggle.setAttribute('aria-expanded', String(!isOpen));
+      });
+
+      document.querySelectorAll('.mobile-link').forEach((link) => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.add('hidden');
+          menuToggle.setAttribute('aria-expanded', 'false');
+        });
+      });
+
+      // Services tabs
+      const tabButtons = document.querySelectorAll('.tab-btn');
+      const tabPanels = document.querySelectorAll('.tab-panel');
+
+      tabButtons.forEach((button) => {
+        button.addEventListener('click', () => {
+          const target = button.dataset.tab;
+
+          tabButtons.forEach((btn) => {
+            btn.classList.remove('is-active', 'bg-accent', 'text-white', 'border-accent', 'shadow-soft');
+            btn.setAttribute('aria-selected', 'false');
+          });
+
+          button.classList.add('is-active', 'bg-accent', 'text-white', 'border-accent', 'shadow-soft');
+          button.setAttribute('aria-selected', 'true');
+
+          tabPanels.forEach((panel) => {
+            const isActive = panel.dataset.panel === target;
+            panel.classList.toggle('is-active', isActive);
+            panel.hidden = !isActive;
+          });
+        });
+      });
+
+      // FAQ accordion (one open at a time)
+      const accordionItems = document.querySelectorAll('[data-accordion-item]');
+
+      accordionItems.forEach((item) => {
+        const trigger = item.querySelector('[data-accordion-trigger]');
+        const panel = item.querySelector('[data-accordion-panel]');
+
+        trigger.addEventListener('click', () => {
+          const isOpen = item.classList.contains('is-open');
+
+          accordionItems.forEach((other) => {
+            other.classList.remove('is-open');
+            other.querySelector('[data-accordion-panel]').classList.remove('is-open');
+            other.querySelector('[data-accordion-trigger]').setAttribute('aria-expanded', 'false');
+          });
+
+          if (!isOpen) {
+            item.classList.add('is-open');
+            panel.classList.add('is-open');
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+
+      // Header style + auto-hide on scroll
+      (function initHeaderScroll() {
+        const header = document.getElementById('home');
+        const hero = document.getElementById('hero');
+        const services = document.getElementById('services');
+
+        if (!header || !hero) return;
+
+        let lastScrollY = window.scrollY;
+
+        function updateHeader() {
+          const navHeight = header.offsetHeight || 72;
+          const currentScrollY = window.scrollY;
+          const heroBottom = hero.getBoundingClientRect().bottom;
+          const inHero = heroBottom > navHeight;
+
+          let overDark = false;
+          if (services) {
+            const servicesRect = services.getBoundingClientRect();
+            overDark = servicesRect.top <= navHeight && servicesRect.bottom > navHeight;
+          }
+
+          header.classList.toggle('is-scrolled', !inHero && !overDark);
+          header.classList.toggle('is-over-dark', !inHero && overDark);
+
+          if (currentScrollY <= 24) {
+            header.classList.remove('is-hidden');
+          } else if (currentScrollY > lastScrollY + 8) {
+            header.classList.add('is-hidden');
+          } else if (currentScrollY < lastScrollY - 8) {
+            header.classList.remove('is-hidden');
+          }
+
+          lastScrollY = currentScrollY;
+        }
+
+        window.addEventListener('scroll', updateHeader, { passive: true });
+        window.addEventListener('resize', updateHeader, { passive: true });
+        updateHeader();
+      })();
+
+      // About feature cards — smooth scroll-linked reveal
+      (function initAboutFeatureReveal() {
+        const cards = document.querySelectorAll('.about-feature-card');
+        if (!cards.length) return;
+
+        function clamp(value, min, max) {
+          return Math.min(max, Math.max(min, value));
+        }
+
+        function easeOutQuint(t) {
+          return 1 - Math.pow(1 - t, 5);
+        }
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          cards.forEach((card) => {
+            card.style.setProperty('--reveal', '1');
+            card.classList.add('is-visible');
+          });
+          return;
+        }
+
+        let ticking = false;
+
+        function updateCards() {
+          ticking = false;
+          const viewport = window.innerHeight;
+
+          cards.forEach((card) => {
+            if (
+              card.classList.contains('about-feature-card--1') ||
+              card.classList.contains('about-feature-card--2') ||
+              card.classList.contains('about-feature-card--3')
+            )
+              return;
+
+            const rect = card.getBoundingClientRect();
+            const start = viewport * 0.9;
+            const end = viewport * 0.5;
+            const raw = clamp((start - rect.top) / (start - end), 0, 1);
+            const progress = easeOutQuint(raw);
+
+            card.style.setProperty('--reveal', progress.toFixed(4));
+
+            if (progress >= 0.995) {
+              card.classList.add('is-visible');
+            }
+          });
+        }
+
+        function onScroll() {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(updateCards);
+          }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
+        updateCards();
+      })();
+
+      // Autoplay background videos
+      (function initAutoplayVideos() {
+        document.querySelectorAll('.hero-video__media').forEach((video) => {
+          const playVideo = () => {
+            video.muted = true;
+            const playPromise = video.play();
+            if (playPromise !== undefined) {
+              playPromise.catch(() => {});
+            }
+          };
+
+          if (video.readyState >= 2) {
+            playVideo();
+          } else {
+            video.addEventListener('loadeddata', playVideo, { once: true });
+          }
+        });
+      })();
+
+      // Hero → About dive-in on scroll
+      (function initHeroDive() {
+        const stage = document.getElementById('hero-scroll-stage');
+        const heroContent = document.getElementById('hero-content');
+        const about = document.getElementById('about');
+        const scrollHint = document.getElementById('hero-scroll-hint');
+        const card1 = document.querySelector('.about-feature-card--1');
+        const card2 = document.querySelector('.about-feature-card--2');
+        const card3 = document.querySelector('.about-feature-card--3');
+        const card1Target = { left: 0, top: 0, width: 0, measured: false };
+        const card2Target = { left: 0, top: 0, width: 0, measured: false };
+        const card3Target = { left: 0, top: 0, width: 0, measured: false };
+
+        if (!stage || !heroContent || !about) return;
+
+        const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function withAboutAtRest(callback) {
+          const aboutTransform = about.style.transform;
+          const aboutOpacity = about.style.opacity;
+          const aboutRadius = about.style.borderRadius;
+          const aboutShadow = about.style.boxShadow;
+
+          about.style.transform = 'none';
+          about.style.opacity = '1';
+          about.style.borderRadius = '0';
+          about.style.boxShadow = 'none';
+
+          const result = callback();
+
+          about.style.transform = aboutTransform;
+          about.style.opacity = aboutOpacity;
+          about.style.borderRadius = aboutRadius;
+          about.style.boxShadow = aboutShadow;
+
+          return result;
+        }
+
+        function measureCard1Target() {
+          if (!card1 || card1Target.measured) return;
+
+          withAboutAtRest(() => {
+            card1.classList.remove('is-hero-fixed', 'is-over-hero');
+            card1.style.position = '';
+            card1.style.left = '';
+            card1.style.top = '';
+            card1.style.width = '';
+            card1.style.transform = '';
+            card1.style.setProperty('--hero-enter', '1');
+
+            const rect = card1.getBoundingClientRect();
+            card1Target.left = rect.left;
+            card1Target.top = rect.top + window.scrollY;
+            card1Target.width = rect.width;
+            card1Target.measured = true;
+          });
+
+          card1.style.setProperty('--hero-enter', '0');
+        }
+
+        function measureCard2Target() {
+          if (!card2 || card2Target.measured) return;
+
+          withAboutAtRest(() => {
+            card2.classList.remove('is-hero-fixed', 'is-over-hero');
+            card2.style.position = '';
+            card2.style.left = '';
+            card2.style.top = '';
+            card2.style.width = '';
+            card2.style.transform = '';
+            card2.style.setProperty('--hero-enter', '1');
+
+            const rect = card2.getBoundingClientRect();
+            card2Target.left = rect.left;
+            card2Target.top = rect.top + window.scrollY;
+            card2Target.width = rect.width;
+            card2Target.measured = true;
+          });
+
+          card2.style.setProperty('--hero-enter', '0');
+        }
+
+        function measureCard3Target() {
+          if (!card3 || card3Target.measured) return;
+
+          withAboutAtRest(() => {
+            card3.classList.remove('is-hero-fixed', 'is-over-hero');
+            card3.style.position = '';
+            card3.style.left = '';
+            card3.style.top = '';
+            card3.style.width = '';
+            card3.style.transform = '';
+            card3.style.setProperty('--hero-enter', '1');
+
+            const rect = card3.getBoundingClientRect();
+            card3Target.left = rect.left;
+            card3Target.top = rect.top + window.scrollY;
+            card3Target.width = rect.width;
+            card3Target.measured = true;
+          });
+
+          card3.style.setProperty('--hero-enter', '0');
+        }
+
+        function resetCard1Layout() {
+          if (!card1) return;
+          card1.classList.remove('is-hero-fixed', 'is-over-hero');
+          card1.style.position = '';
+          card1.style.left = '';
+          card1.style.top = '';
+          card1.style.width = '';
+          card1.style.transform = '';
+          card1.style.setProperty('--hero-enter', '1');
+          card1.style.setProperty('--reveal', '1');
+        }
+
+        function updateCard1HeroEnter(progress) {
+          if (!card1) return;
+
+          measureCard1Target();
+
+          if (progress >= 0.96) {
+            resetCard1Layout();
+            card1.classList.add('is-visible');
+            return;
+          }
+
+          const enterRaw = clamp((progress - 0.03) / 0.8, 0, 1);
+          const enterProgress = easeOutCubic(enterRaw);
+          const startY = window.innerHeight * 1.08;
+          const heroY = window.innerHeight * 0.56;
+          const endY = card1Target.top - window.scrollY;
+          let y;
+
+          if (enterProgress < 0.68) {
+            const t = easeOutCubic(enterProgress / 0.68);
+            y = startY + (heroY - startY) * t;
+          } else {
+            const t = easeOutCubic((enterProgress - 0.68) / 0.32);
+            y = heroY + (endY - heroY) * t;
+          }
+
+          card1.classList.add('is-hero-fixed');
+          card1.style.position = 'fixed';
+          card1.style.left = `${card1Target.left}px`;
+          card1.style.top = `${y}px`;
+          card1.style.width = `${card1Target.width}px`;
+          card1.style.transform = 'none';
+          card1.style.setProperty('--hero-enter', Math.max(enterProgress, 0.12).toFixed(4));
+          card1.classList.toggle('is-over-hero', y <= window.innerHeight * 0.68);
+        }
+
+        function resetCard2Layout() {
+          if (!card2) return;
+          card2.classList.remove('is-hero-fixed', 'is-over-hero');
+          card2.style.position = '';
+          card2.style.left = '';
+          card2.style.top = '';
+          card2.style.width = '';
+          card2.style.transform = '';
+          card2.style.setProperty('--hero-enter', '1');
+          card2.style.setProperty('--reveal', '1');
+        }
+
+        function updateCard2HeroEnter(progress) {
+          if (!card2) return;
+
+          measureCard2Target();
+
+          if (progress >= 0.96) {
+            resetCard2Layout();
+            card2.classList.add('is-visible');
+            return;
+          }
+
+          const enterRaw = clamp((progress - 0.1) / 0.78, 0, 1);
+          const enterProgress = easeOutCubic(enterRaw);
+          const startX = window.innerWidth * 1.12;
+          const heroX = window.innerWidth * 0.58;
+          const endX = card2Target.left;
+          let x;
+
+          if (enterProgress < 0.68) {
+            const t = easeOutCubic(enterProgress / 0.68);
+            x = startX + (heroX - startX) * t;
+          } else {
+            const t = easeOutCubic((enterProgress - 0.68) / 0.32);
+            x = heroX + (endX - heroX) * t;
+          }
+
+          const heroY = window.innerHeight * 0.42;
+          const endY = card2Target.top - window.scrollY;
+          const y =
+            enterProgress < 0.68
+              ? heroY
+              : heroY + (endY - heroY) * easeOutCubic((enterProgress - 0.68) / 0.32);
+
+          card2.classList.add('is-hero-fixed');
+          card2.style.position = 'fixed';
+          card2.style.left = `${x}px`;
+          card2.style.top = `${y}px`;
+          card2.style.width = `${card2Target.width}px`;
+          card2.style.transform = 'none';
+          card2.style.setProperty('--hero-enter', Math.max(enterProgress, 0.12).toFixed(4));
+          card2.classList.toggle('is-over-hero', x <= window.innerWidth * 0.72 && enterProgress < 0.78);
+        }
+
+        function resetCard3Layout() {
+          if (!card3) return;
+          card3.classList.remove('is-hero-fixed', 'is-over-hero');
+          card3.style.position = '';
+          card3.style.left = '';
+          card3.style.top = '';
+          card3.style.width = '';
+          card3.style.transform = '';
+          card3.style.setProperty('--hero-enter', '1');
+          card3.style.setProperty('--reveal', '1');
+        }
+
+        function updateCard3HeroEnter(progress) {
+          if (!card3) return;
+
+          measureCard3Target();
+
+          if (progress >= 0.96) {
+            resetCard3Layout();
+            card3.classList.add('is-visible');
+            return;
+          }
+
+          const enterRaw = clamp((progress - 0.16) / 0.76, 0, 1);
+          const enterProgress = easeOutCubic(enterRaw);
+          const startX = -(card3Target.width || 320) * 1.15;
+          const heroX = window.innerWidth * 0.08;
+          const endX = card3Target.left;
+          let x;
+
+          if (enterProgress < 0.68) {
+            const t = easeOutCubic(enterProgress / 0.68);
+            x = startX + (heroX - startX) * t;
+          } else {
+            const t = easeOutCubic((enterProgress - 0.68) / 0.32);
+            x = heroX + (endX - heroX) * t;
+          }
+
+          const heroY = window.innerHeight * 0.48;
+          const endY = card3Target.top - window.scrollY;
+          const y =
+            enterProgress < 0.68
+              ? heroY
+              : heroY + (endY - heroY) * easeOutCubic((enterProgress - 0.68) / 0.32);
+
+          card3.classList.add('is-hero-fixed');
+          card3.style.position = 'fixed';
+          card3.style.left = `${x}px`;
+          card3.style.top = `${y}px`;
+          card3.style.width = `${card3Target.width}px`;
+          card3.style.transform = 'none';
+          card3.style.setProperty('--hero-enter', Math.max(enterProgress, 0.12).toFixed(4));
+          card3.classList.toggle('is-over-hero', x >= 0 && x <= window.innerWidth * 0.55 && enterProgress < 0.78);
+        }
+
+        if (reducedMotion) {
+          resetCard1Layout();
+          resetCard2Layout();
+          resetCard3Layout();
+          return;
+        }
+
+        let ticking = false;
+
+        function clamp(value, min, max) {
+          return Math.min(max, Math.max(min, value));
+        }
+
+        function easeOutCubic(t) {
+          return 1 - Math.pow(1 - t, 3);
+        }
+
+        function updateHeroDive() {
+          ticking = false;
+
+          const scrollRange = stage.offsetHeight - window.innerHeight;
+          if (scrollRange <= 0) return;
+
+          const progress = easeOutCubic(clamp(-stage.getBoundingClientRect().top / scrollRange, 0, 1));
+
+          heroContent.style.opacity = String(clamp(1 - progress * 1.2, 0, 1));
+          heroContent.style.transform = `translate3d(0, ${-progress * 80}px, 0) scale(${1 - progress * 0.08})`;
+          heroContent.style.filter = `blur(${progress * 5}px)`;
+
+          about.style.transform = `translate3d(0, ${(1 - progress) * 38}vh, 0) scale(${0.9 + progress * 0.1})`;
+          about.style.borderRadius = `${32 - progress * 32}px ${32 - progress * 32}px 0 0`;
+          about.style.opacity = String(0.55 + progress * 0.45);
+          about.style.boxShadow = 'none';
+
+          if (card1) {
+            updateCard1HeroEnter(progress);
+          }
+
+          if (card2) {
+            updateCard2HeroEnter(progress);
+          }
+
+          if (card3) {
+            updateCard3HeroEnter(progress);
+          }
+
+          if (scrollHint) {
+            scrollHint.style.opacity = String(clamp(1 - progress * 3, 0, 1));
+          }
+        }
+
+        function onScroll() {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(updateHeroDive);
+          }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', () => {
+          card1Target.measured = false;
+          card2Target.measured = false;
+          card3Target.measured = false;
+          onScroll();
+        }, { passive: true });
+        updateHeroDive();
+      })();
+
+      // Portfolio card swipe — only services → portfolio
+      (function initPortfolioStack() {
+        const services = document.getElementById('services');
+        const portfolio = document.getElementById('portfolio');
+        if (!services || !portfolio) return;
+
+        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          services.style.setProperty('--stack-depth', '0');
+          return;
+        }
+
+        let ticking = false;
+
+        function clamp(value, min, max) {
+          return Math.min(max, Math.max(min, value));
+        }
+
+        function updatePortfolioStack() {
+          ticking = false;
+          const viewport = window.innerHeight;
+          const portfolioTop = portfolio.getBoundingClientRect().top;
+          const raw = clamp((viewport - portfolioTop) / viewport, 0, 1);
+          const eased = 1 - Math.pow(1 - raw, 3);
+          services.style.setProperty('--stack-depth', eased.toFixed(4));
+        }
+
+        function onScroll() {
+          if (!ticking) {
+            ticking = true;
+            requestAnimationFrame(updatePortfolioStack);
+          }
+        }
+
+        window.addEventListener('scroll', onScroll, { passive: true });
+        window.addEventListener('resize', onScroll, { passive: true });
+        updatePortfolioStack();
+      })();
+
+      // Section anchor navigation
+      (function initSectionAnchorNav() {
+        const stackIds = new Set(['services', 'portfolio', 'faq', 'contact']);
+
+        function getPageOffset(el) {
+          let top = 0;
+          let node = el;
+          while (node) {
+            top += node.offsetTop;
+            node = node.offsetParent;
+          }
+          return top;
+        }
+
+        function scrollToSection(id, behavior = 'smooth') {
+          const section = document.getElementById(id);
+          if (!section) return false;
+
+          window.scrollTo({
+            top: getPageOffset(section),
+            behavior,
+          });
+          return true;
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach((link) => {
+          const hash = link.getAttribute('href');
+          if (!hash || hash.length < 2) return;
+
+          const id = hash.slice(1);
+          if (!stackIds.has(id)) return;
+
+          link.addEventListener('click', (e) => {
+            if (!document.getElementById(id)) return;
+
+            e.preventDefault();
+            scrollToSection(id);
+            history.pushState(null, '', `#${id}`);
+          });
+        });
+
+        if (window.location.hash) {
+          const id = window.location.hash.slice(1);
+          if (stackIds.has(id)) {
+            requestAnimationFrame(() => {
+              scrollToSection(id, 'auto');
+            });
+          }
+        }
+      })();
+    </script>
+  </body>
+</html>
